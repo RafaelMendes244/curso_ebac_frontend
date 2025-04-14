@@ -1,0 +1,14 @@
+    body {
+    font-family: Arial, sans-serif;
+    margin: 30px;
+    }
+    .mensagem {
+    margin-top: 15px;
+    font-weight: bold;
+    }
+    .positiva {
+    color: green;
+    }
+    .negativa {
+    color: red;
+    }
