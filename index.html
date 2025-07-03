@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WebSites Premium - Criação de Sites Profissionais</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-color: #0d6efd;
+            --secondary-color: #6c757d;
+            --dark-color: #343a40;
+            --light-color: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+        }
+
+        .carousel-item {
+            height: 80vh;
+            min-height: 500px;
+        }
+
+        .carousel-item img {
+            object-fit: cover;
+            height: 100%;
+        }
+
+        .carousel-caption {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 2rem;
+            border-radius: 0.5rem;
+            bottom: 30%;
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary-color);
+        }
+
+        .card {
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-title {
+            color: var(--primary-color);
+        }
+
+        .btn-cta {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+            margin-top: 1rem;
+            padding: 0.5rem 1.5rem;
+            font-weight: 500;
+        }
+
+        .btn-cta:hover {
+            background-color: #0b5ed7;
+            color: #fff;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-card {
+            background-color: var(--light-color);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+        }
+
+        footer {
+            background-color: var(--dark-color);
+            color: #fff;
+            padding: 2rem 0;
+        }
+
+        .social-icons a {
+            color: #fff;
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--primary-color);
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            z-index: 99;
+        }
+
+        #contact {
+            background-color: var(--light-color);
+        }
+
+        .tab-content {
+            padding: 1.5rem;
+            background-color: white;
+            border: 1px solid #dee2e6;
+            border-top: none;
+            border-radius: 0 0 0.5rem 0.5rem;
+        }
+
+        .nav-tabs .nav-link.active {
+            font-weight: bold;
+        }
+
+        /* Melhorias adicionais */
+        .payment-icon {
+            height: 30px;
+            margin: 5px;
+            filter: brightness(0) invert(1);
+        }
+
+        .payment-icon.pix {
+            filter: none;
+        }
+
+        .hero-btn {
+            transition: all 0.3s;
+        }
+
+        .hero-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .service-card {
+            min-height: 450px;
+        }
+    </style>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#navbar-example">
+    <!-- Navbar -->
+    <nav id="navbar-example" class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="bi bi-globe"></i> WebSites Premium
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Serviços</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Sobre Mim</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Depoimentos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contato</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown">
+                            Mais
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                                    data-bs-target="#blogModal">Blog</a></li>
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                                    data-bs-target="#portfolioModal">Portfólio</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                                    data-bs-target="#faqModal">FAQ</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <button class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#loginModal">
+                        <i class="bi bi-box-arrow-in-right"></i> Login
+                    </button>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#contactModal">
+                        <i class="bi bi-chat-dots"></i> Fale Conosco
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Carousel -->
+    <section id="home">
+        <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="5000">
+                    <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                        class="d-block w-100" alt="Sites Profissionais">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2 class="display-4">Transforme sua presença online</h2>
+                        <p class="lead">Criação de sites modernos, rápidos e responsivos</p>
+                        <a href="#services" class="btn btn-primary btn-lg mt-3 hero-btn">Nossos Serviços</a>
+                    </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="5000">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                        class="d-block w-100" alt="Design Responsivo">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2 class="display-4">Design que impressiona</h2>
+                        <p class="lead">Visual atrativo em todos os dispositivos</p>
+                        <a href="#contact" class="btn btn-primary btn-lg mt-3 hero-btn">Solicite um Orçamento</a>
+                    </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="5000">
+                    <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                        class="d-block w-100" alt="Sites que Vendem">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2 class="display-4">Seu site vendendo 24h por dia</h2>
+                        <p class="lead">Invista em uma vitrine digital eficaz</p>
+                        <button class="btn btn-primary btn-lg mt-3 hero-btn" data-bs-toggle="modal"
+                            data-bs-target="#successModal">Casos de Sucesso</button>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Próximo</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Sessao para Transparencia -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="text-center p-4">
+                        <div class="feature-icon">
+                            <i class="bi bi-speedometer2"></i>
+                        </div>
+                        <h3>Rápido e Leve</h3>
+                        <p>Sites otimizados para carregamento rápido, essencial para SEO e experiência do usuário.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center p-4">
+                        <div class="feature-icon">
+                            <i class="bi bi-phone"></i>
+                        </div>
+                        <h3>Totalmente Responsivo</h3>
+                        <p>Seu site perfeito em qualquer dispositivo: desktop, tablet ou smartphone.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center p-4">
+                        <div class="feature-icon">
+                            <i class="bi bi-shield-check"></i>
+                        </div>
+                        <h3>Segurança Garantida</h3>
+                        <p>Proteção contra ameaças com certificado SSL e boas práticas de desenvolvimento.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sessao de Serviços -->
+    <section id="services" class="py-5">
+        <div class="container">
+            <h2 class="text-center section-title">Nossos Planos de Criação de Sites</h2>
+            <p class="text-center mb-5">Oferecemos soluções completas para atender diferentes necessidades do seu
+                negócio.</p>
+
+            <ul class="nav nav-tabs justify-content-center mb-4" id="servicesTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="basic-tab" data-bs-toggle="tab" data-bs-target="#basic"
+                        type="button">Básico</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="intermediate-tab" data-bs-toggle="tab" data-bs-target="#intermediate"
+                        type="button">Intermediário</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="advanced-tab" data-bs-toggle="tab" data-bs-target="#advanced"
+                        type="button">Avançado</button>
+                </li>
+            </ul>
+
+            <div class="tab-content" id="servicesTabContent">
+                <div class="tab-pane fade show active" id="basic" role="tabpanel">
+                    <div class="row g-4">
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="card h-100 shadow service-card">
+                                <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                                    class="card-img-top" alt="One Page">
+                                <div class="card-body">
+                                    <h5 class="card-title">Site One Page</h5>
+                                    <p class="card-text">Ideal para apresentar seu negócio de forma rápida e elegante em
+                                        uma única página.</p>
+                                    <ul class="list-group list-group-flush mb-3">
+                                        <li class="list-group-item"><i class="bi bi-check-circle text-success"></i>
+                                            Design Responsivo</li>
+                                        <li class="list-group-item"><i class="bi bi-check-circle text-success"></i> 1
+                                            Seção Principal</li>
+                                        <li class="list-group-item"><i class="bi bi-check-circle text-success"></i>
+                                            Formulário de Contato</li>
+                                    </ul>
+                                    <button class="btn btn-cta w-100" data-bs-toggle="modal"
+                                        data-bs-target="#quoteModal" data-service="Site One Page">
+                                        Solicitar Orçamento
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="card h-100 shadow service-card">
+                                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                                    class="card-img-top" alt="Institucional">
+                                <div class="card-body">
+                                    <h5 class="card-title">Site Institucional</h5>
+                                    <p class="card-text">Mostre a história, missão, serviços e contato da sua empresa de
+                                        forma completa.</p>
+                                    <ul class="list-group list-group-flush mb-3">
+                                        <li class="list-group-item"><i class="bi bi-check-circle text-success"></i> Até
+                                            5 Páginas</li>
+                                        <li class="list-group-item"><i class="bi bi-check-circle text-success"></i>
+                                            Galeria de Imagens</li>
+                                        <li class="list-group-item"><i class="bi bi-check-circle text-success"></i> SEO
+                                            Básico</li>
+                                    </ul>
+                                    <button class="btn btn-cta w-100" data-bs-toggle="modal"
+                                        data-bs-target="#quoteModal" data-service="Site Institucional">
+                                        Solicitar Orçamento
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="card h-100 shadow service-card">
+                                <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                                    class="card-img-top" alt="Landing Page">
+                                <div class="card-body">
+                                    <h5 class="card-title">Landing Page</h5>
+                                    <p class="card-text">Página focada em conversão, ideal para campanhas de marketing
+                                        digital.</p>
+                                    <ul class="list-group list-group-flush mb-3">
+                                        <li class="list-group-item"><i class="bi bi-check-circle text-success"></i>
+                                            Design de Alta Conversão</li>
+                                        <li class="list-group-item"><i class="bi bi-check-circle text-success"></i>
+                                            Integração com Redes Sociais</li>
+                                        <li class="list-group-item"><i class="bi bi-check-circle text-success"></i>
+                                            Formulário de Captura</li>
+                                    </ul>
+                                    <button class="btn btn-cta w-100" data-bs-toggle="modal"
+                                        data-bs-target="#quoteModal" data-service="Landing Page">
+                                        Solicitar Orçamento
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="intermediate" role="tabpanel">
+                    <div class="row g-4">
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="card h-100 shadow service-card">
+                                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                                    class="card-img-top" alt="Blog">
+                                <div class="card-body">
+                                    <h5 class="card-title">Blog Profissional</h5>
+                                    <p class="card-text">Compartilhe conteúdos e posicione seu negócio no Google com
+                                        SEO.</p>
+                                    <ul class="list-group list-group-flush mb-3">
+                                        <li class="list-group-item"><i class="bi bi-check-circle text-success"></i>
+                                            Sistema de Gerenciamento</li>
+                                        <li class="list-group-item"><i class="bi bi-check-circle text-success"></i> SEO
+                                            Avançado</li>
+                                        <li class="list-group-item"><i class="bi bi-check-circle text-success"></i>
+                                            Integração com Redes Sociais</li>
+                                    </ul>
+                                    <button class="btn btn-cta w-100" data-bs-toggle="modal"
+                                        data-bs-target="#quoteModal" data-service="Blog Profissional">
+                                        Solicitar Orçamento
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="card h-100 shadow service-card">
+                                <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                                    class="card-img-top" alt="E-commerce">
+                                <div class="card-body">
+                                    <h5 class="card-title">Loja Virtual Básica</h5>
+                                    <p class="card-text">Venda seus produtos online com uma loja virtual integrada e
+                                        segura.</p>
+                                    <ul class="list-group list-group-flush mb-3">
+                                        <li class="list-group-item"><i class="bi bi-check-circle text-success"></i> Até
+                                            20 Produtos</li>
+                                        <li class="list-group-item"><i class="bi bi-check-circle text-success"></i>
+                                            Pagamento Digital</li>
+                                        <li class="list-group-item"><i class="bi bi-check-circle text-success"></i>
+                                            Painel Administrativo</li>
+                                    </ul>
+                                    <button class="btn btn-cta w-100" data-bs-toggle="modal"
+                                        data-bs-target="#quoteModal" data-service="Loja Virtual Básica">
+                                        Solicitar Orçamento
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="card h-100 shadow service-card">
+                                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                                    class="card-img-top" alt="Personalizado">
+                                <div class="card-body">
+                                    <h5 class="card-title">Site Personalizado</h5>
+                                    <p class="card-text">Soluções exclusivas para atender exatamente o que seu projeto
+                                        precisa.</p>
+                                    <ul class="list-group list-group-flush mb-3">
+                                        <li class="list-group-item"><i class="bi bi-check-circle text-success"></i>
+                                            Design Exclusivo</li>
+                                        <li class="list-group-item"><i class="bi bi-check-circle text-success"></i>
+                                            Funcionalidades Customizadas</li>
+                                        <li class="list-group-item"><i class="bi bi-check-circle text-success"></i>
+                                            Suporte Prioritário</li>
+                                    </ul>
+                                    <button class="btn btn-cta w-100" data-bs-toggle="modal"
+                                        data-bs-target="#quoteModal" data-service="Site Personalizado">
+                                        Solicitar Orçamento
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="advanced" role="tabpanel">
+                    <div class="row g-4">
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="card h-100 shadow service-card">
+                                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                                    class="card-img-top" alt="E-commerce">
+                                <div class="card-body">
+                                    <h5 class="card-title">E-commerce Completo</h5>
+                                    <p class="card-text">Sistema completo para venda online com todos os recursos
+                                        necessários.</p>
+                                    <ul class="list-group list-group-flush mb-3">
+                                        <li class="list-group-item"><i class="bi bi-check-circle text-success"></i>
+                                            Produtos Ilimitados</li>
+                                        <li class="list-group-item"><i class="bi bi-check-circle text-success"></i>
+                                            Múltiplos Meios de Pagamento</li>
+                                        <li class="list-group-item"><i class="bi bi-check-circle text-success"></i>
+                                            Sistema de Frete</li>
+                                    </ul>
+                                    <button class="btn btn-cta w-100" data-bs-toggle="modal"
+                                        data-bs-target="#quoteModal" data-service="E-commerce Completo">
+                                        Solicitar Orçamento
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="card h-100 shadow service-card">
+                                <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                                    class="card-img-top" alt="Sistema Web">
+                                <div class="card-body">
+                                    <h5 class="card-title">Sistema Web</h5>
+                                    <p class="card-text">Desenvolvimento de sistemas sob medida para sua necessidade
+                                        específica.</p>
+                                    <ul class="list-group list-group-flush mb-3">
+                                        <li class="list-group-item"><i class="bi bi-check-circle text-success"></i>
+                                            Desenvolvimento Customizado</li>
+                                        <li class="list-group-item"><i class="bi bi-check-circle text-success"></i>
+                                            Banco de Dados Seguro</li>
+                                        <li class="list-group-item"><i class="bi bi-check-circle text-success"></i>
+                                            Relatórios Avançados</li>
+                                    </ul>
+                                    <button class="btn btn-cta w-100" data-bs-toggle="modal"
+                                        data-bs-target="#quoteModal" data-service="Sistema Web">
+                                        Solicitar Orçamento
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="card h-100 shadow service-card">
+                                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                                    class="card-img-top" alt="Enterprise">
+                                <div class="card-body">
+                                    <h5 class="card-title">Solução Enterprise</h5>
+                                    <p class="card-text">Pacote completo para grandes empresas com múltiplas
+                                        necessidades.</p>
+                                    <ul class="list-group list-group-flush mb-3">
+                                        <li class="list-group-item"><i class="bi bi-check-circle text-success"></i> Site
+                                            Institucional</li>
+                                        <li class="list-group-item"><i class="bi bi-check-circle text-success"></i> Loja
+                                            Virtual</li>
+                                        <li class="list-group-item"><i class="bi bi-check-circle text-success"></i>
+                                            Sistema Interno</li>
+                                    </ul>
+                                    <button class="btn btn-cta w-100" data-bs-toggle="modal"
+                                        data-bs-target="#quoteModal" data-service="Solução Enterprise">
+                                        Solicitar Orçamento
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Mim Sessao -->
+    <section id="about" class="py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="section-title">Sobre Mim</h2>
+                    <p class="lead">Meu nome é Rafael Mendes, sou desenvolvedor web freelancer apaixonado por criar
+                        soluções digitais que impulsionam negócios.</p>
+                    <p>Com experiência no mercado, ajudo empresas a estabelecer uma presença online profissional e
+                        eficiente, trabalhando diretamente com cada cliente para entender suas necessidades específicas.
+                    </p>
+
+                    <div class="accordion mt-4" id="aboutAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOne">
+                                    Minha Missão
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show"
+                                data-bs-parent="#aboutAccordion">
+                                <div class="accordion-body">
+                                    Fornecer soluções web de alta qualidade que ajudem meus clientes a alcançar seus
+                                    objetivos de negócios através da tecnologia, com atenção personalizada e
+                                    comprometimento total.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseTwo">
+                                    Minha Experiência
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#aboutAccordion">
+                                <div class="accordion-body">
+                                    Tenho mais de 5 anos de experiência no desenvolvimento de sites e sistemas web,
+                                    trabalhando com diversas tecnologias e frameworks para entregar os melhores
+                                    resultados para meus clientes.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseThree">
+                                    Meus Valores
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse"
+                                data-bs-parent="#aboutAccordion">
+                                <div class="accordion-body">
+                                    <ul class="list-unstyled">
+                                        <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Transparência -
+                                            Comunicação clara em todas as etapas</li>
+                                        <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Qualidade - Código
+                                            limpo e bem estruturado</li>
+                                        <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Comprometimento -
+                                            Entrega no prazo combinado</li>
+                                        <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Suporte -
+                                            Acompanhamento pós-entrega</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-4 mt-lg-0">
+                    <div class="card h-100 shadow">
+                        <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                            class="card-img-top" alt="Desenvolvimento Web" style="height: 300px; object-fit: cover;">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Rafael Mendes</h5>
+                            <p class="card-text">Desenvolvedor Web Full Stack</p>
+                            <div class="d-flex justify-content-center">
+                                <a href="https://www.linkedin.com/in/fael-mendesdev/" class="btn btn-outline-primary me-2"><i class="bi bi-linkedin"></i>
+                                    LinkedIn</a>
+                                <a href="https://github.com/RafaelMendes244" class="btn btn-outline-primary"><i
+                                        class="bi bi-github"></i> GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sessao de Testemunhos -->
+    <section id="testimonials" class="py-5">
+        <div class="container">
+            <h2 class="text-center section-title">Depoimentos</h2>
+            <p class="text-center mb-5">Veja o que nossos clientes dizem sobre nossos serviços</p>
+
+            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0"
+                        class="active"></button>
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row justify-content-center">
+                            <div class="col-md-8">
+                                <div class="testimonial-card text-center">
+                                    <img src="https://randomuser.me/api/portraits/women/32.jpg"
+                                        class="rounded-circle mb-3" width="100" alt="Cliente">
+                                    <h4>Ana Carolina</h4>
+                                    <p class="text-muted">CEO - Moda & Estilo</p>
+                                    <div class="mb-3">
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                    </div>
+                                    <p class="lead">"Nosso e-commerce teve um aumento de 150% nas vendas após o
+                                        redesenho feito pela WebSites Premium. O atendimento foi excelente e o resultado
+                                        superou nossas expectativas!"</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row justify-content-center">
+                            <div class="col-md-8">
+                                <div class="testimonial-card text-center">
+                                    <img src="https://randomuser.me/api/portraits/men/45.jpg"
+                                        class="rounded-circle mb-3" width="100" alt="Cliente">
+                                    <h4>Carlos Eduardo</h4>
+                                    <p class="text-muted">Diretor - Consultoria Empresarial</p>
+                                    <div class="mb-3">
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                    </div>
+                                    <p class="lead">"O site institucional que desenvolveram para nossa empresa transmite
+                                        exatamente a profissionalismo que queríamos passar. Recebemos vários elogios de
+                                        clientes e parceiros."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row justify-content-center">
+                            <div class="col-md-8">
+                                <div class="testimonial-card text-center">
+                                    <img src="https://randomuser.me/api/portraits/women/68.jpg"
+                                        class="rounded-circle mb-3" width="100" alt="Cliente">
+                                    <h4>Mariana Oliveira</h4>
+                                    <p class="text-muted">Gerente de Marketing - Alimentos Saudáveis</p>
+                                    <div class="mb-3">
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                    </div>
+                                    <p class="lead">"A landing page que criaram para nossa campanha teve uma taxa de
+                                        conversão impressionante. Superou em muito os resultados das campanhas
+                                        anteriores. Recomendo!"</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Próximo</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sessao de Contatos -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <h2 class="text-center section-title">Entre em Contato</h2>
+            <p class="text-center mb-5">Tem alguma dúvida ou quer solicitar um orçamento? Preencha o formulário abaixo.
+            </p>
+
+            <div class="row">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <form>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Nome Completo</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">E-mail</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Telefone</label>
+                            <input type="tel" class="form-control" id="phone">
+                        </div>
+                        <div class="mb-3">
+                            <label for="service" class="form-label">Serviço de Interesse</label>
+                            <select class="form-select" id="service">
+                                <option selected>Selecione um serviço</option>
+                                <option>Site One Page</option>
+                                <option>Site Institucional</option>
+                                <option>Landing Page</option>
+                                <option>Blog Profissional</option>
+                                <option>Loja Virtual</option>
+                                <option>Site Personalizado</option>
+                                <option>Outro</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Mensagem</label>
+                            <textarea style="resize: none;" class="form-control" id="message" rows="5"
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+                    </form>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Informações de Contato</h5>
+                            <ul class="list-unstyled">
+                                <li class="mb-3">
+                                    <i class="bi bi-geo-alt-fill text-primary me-2"></i>
+                                    <span>R. Bancário Sérgio Guerra, 900 - Anatólia, João Pessoa - PB</span>
+                                </li>
+                                <li class="mb-3">
+                                    <i class="bi bi-telephone-fill text-primary me-2"></i>
+                                    <span>(11) 9999-9999</span>
+                                </li>
+                                <li class="mb-3">
+                                    <i class="bi bi-envelope-fill text-primary me-2"></i>
+                                    <span>contato@websitespremium.com.br</span>
+                                </li>
+                                <li class="mb-3">
+                                    <i class="bi bi-clock-fill text-primary me-2"></i>
+                                    <span>Segunda a Sexta: 9h às 18h</span>
+                                </li>
+                            </ul>
+
+                            <div class="ratio ratio-16x9 mb-4">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.80944894136!2d-34.84527147025118!3d-7.1480195207225155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7acc2ed69c58c9f%3A0xc0200d88ab3e6120!2sShopping%20Sul!5e0!3m2!1spt-BR!2sbr!4v1751510188974!5m2!1spt-BR!2sbr"
+                                    style="border:0;" allowfullscreen="" loading="lazy">
+                                </iframe>
+                            </div>
+
+                            <div class="d-flex justify-content-center">
+                                <a href="#" class="btn btn-outline-primary me-2"><i class="bi bi-whatsapp"></i>
+                                    WhatsApp</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <h3 class="mb-0">Assine nossa newsletter</h3>
+                    <p class="mb-0">Receba dicas e novidades sobre desenvolvimento web</p>
+                </div>
+                <div class="col-md-6">
+                    <form class="row g-2">
+                        <div class="col-8">
+                            <input type="email" class="form-control" placeholder="Seu melhor e-mail" required>
+                        </div>
+                        <div class="col-4">
+                            <button type="submit" class="btn btn-light w-100">Assinar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5>WebSites Premium</h5>
+                    <p>Criação de sites profissionais que impulsionam seu negócio na internet.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                        <a href="#"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-4 mb-md-0">
+                    <h5>Serviços</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Sites Institucionais</a></li>
+                        <li><a href="#" class="text-white">Loja Virtual</a></li>
+                        <li><a href="#" class="text-white">Landing Pages</a></li>
+                        <li><a href="#" class="text-white">Blogs</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4 mb-md-0">
+                    <h5>Links Úteis</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Blog</a></li>
+                        <li><a href="#" class="text-white">Portfólio</a></li>
+                        <li><a href="#" class="text-white">FAQ</a></li>
+                        <li><a href="#" class="text-white">Termos de Uso</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Pagamento Seguro</h5>
+                    <div class="d-flex flex-wrap align-items-center" style="gap: 10px;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa"
+                            width="40">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png"
+                            alt="Mastercard" width="40">
+                        <img src="https://img.icons8.com/?size=80&id=SkmZiM3fxBsb&format=png" alt="American Express"
+                            width="40">
+                        <img src="https://cdn.brandfetch.io/idT3-XCDJD/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B"
+                            alt="Elo" width="40" style="filter: brightness(0) invert(1);">
+                        <img src="https://img.icons8.com/?size=48&id=Dk4sj0EM4b20&format=png" alt="Pix" width="40">
+                        <img src="https://img.icons8.com/?format=png&id=77599&size=512w" alt="Boleto" width="40"
+                            style="filter: brightness(0) invert(1);">
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 bg-light">
+            <div class="text-center">
+                <p class="mb-0">Desenvolvido por Rafael Mendes para EBAC © 2023. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botao de Voltar ao Topo -->
+    <a href="#" class="back-to-top btn btn-primary rounded-circle p-3" title="Voltar ao topo">
+        <i class="bi bi-arrow-up"></i>
+    </a>
+
+    <!-- Modal Para Solicitar Orçamento -->
+    <div class="modal fade" id="quoteModal" tabindex="-1" aria-labelledby="quoteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="quoteModalLabel">Solicitar Orçamento</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="serviceName" class="form-label">Serviço</label>
+                            <input type="text" class="form-control" id="serviceName" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="clientName" class="form-label">Nome</label>
+                            <input type="text" class="form-control" id="clientName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="clientEmail" class="form-label">E-mail</label>
+                            <input type="email" class="form-control" id="clientEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="clientPhone" class="form-label">Telefone</label>
+                            <input type="tel" class="form-control" id="clientPhone" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="clientMessage" class="form-label">Detalhes do Projeto</label>
+                            <textarea style="resize: none;" class="form-control" id="clientMessage" rows="3"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary">Enviar Solicitação</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Contato -->
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="contactModalLabel">Fale Conosco</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="contactName" class="form-label">Nome</label>
+                            <input type="text" class="form-control" id="contactName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="contactEmail" class="form-label">E-mail</label>
+                            <input type="email" class="form-control" id="contactEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="contactSubject" class="form-label">Assunto</label>
+                            <input type="text" class="form-control" id="contactSubject" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="contactMessage" class="form-label">Mensagem</label>
+                            <textarea style="resize: none;" class="form-control" id="contactMessage" rows="3"
+                                required></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary">Enviar Mensagem</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Login -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Área do Cliente</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label">E-mail</label>
+                            <input type="email" class="form-control" id="loginEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Senha</label>
+                            <input type="password" class="form-control" id="loginPassword" required>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="rememberMe">
+                            <label class="form-check-label" for="rememberMe">Lembrar de mim</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Entrar</button>
+                    </form>
+                    <div class="text-center mt-3">
+                        <a href="#">Esqueci minha senha</a>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <p class="mb-0">Não tem uma conta? <a href="#" data-bs-toggle="modal"
+                            data-bs-target="#registerModal">Cadastre-se</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal com Sucessos -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="successModalLabel">Casos de Sucesso</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="successCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                    class="d-block w-100" alt="Sucesso 1">
+                                <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75">
+                                    <h5>Moda & Estilo</h5>
+                                    <p>Aumento de 150% nas vendas após o redesenho do e-commerce.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                    class="d-block w-100" alt="Sucesso 2">
+                                <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75">
+                                    <h5>Consultoria Empresarial</h5>
+                                    <p>Site institucional que transmite profissionalismo e credibilidade.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                    class="d-block w-100" alt="Sucesso 3">
+                                <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75">
+                                    <h5>Alimentos Saudáveis</h5>
+                                    <p>Landing page com taxa de conversão impressionante para campanha.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#successCarousel"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Anterior</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#successCarousel"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Próximo</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#contactModal">Quero meu site também</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modais de Mais e Portfolio -->
+<div class="modal fade" id="blogModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Blog</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Conteúdo do blog em desenvolvimento. Em breve artigos sobre desenvolvimento web, dicas e novidades.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="portfolioModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Meu Portfólio</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Confira alguns dos meus trabalhos recentes:</p>
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100">
+                            <img src="./imagens/RMSimulador.png" class="card-img-top" alt="RM Simulador">
+                            <div class="card-body">
+                                <h5 class="card-title">RM Simulador</h5>
+                                <p class="card-text">Sistema completo para simulação de investimentos com dashboard interativo.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100">
+                            <img src="./imagens/VersiculoDia.png" class="card-img-top" alt="Versículo do Dia">
+                            <div class="card-body">
+                                <h5 class="card-title">Versículo do Dia</h5>
+                                <p class="card-text">Aplicativo devocional diário com integração a API bíblica.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <a href="#" class="btn btn-primary" data-bs-dismiss="modal">Ver mais detalhes</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="faqModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Perguntas Frequentes</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="accordion" id="faqAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqOne">
+                                Quanto tempo leva para desenvolver um site?
+                            </button>
+                        </h2>
+                        <div id="faqOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                O prazo varia conforme o tipo de projeto. Sites one page levam em média 1-2 semanas, enquanto e-commerces podem levar de 3-6 semanas.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqTwo">
+                                Vocês fazem manutenção após a entrega?
+                            </button>
+                        </h2>
+                        <div id="faqTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Sim, ofereço pacotes de manutenção mensal conforme a necessidade de cada cliente.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Back to top button
+        window.addEventListener('scroll', function () {
+            var backToTop = document.querySelector('.back-to-top');
+            if (window.pageYOffset > 300) {
+                backToTop.style.display = 'block';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        });
+
+        document.querySelector('.back-to-top').addEventListener('click', function (e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Quote modal service name
+        document.getElementById('quoteModal').addEventListener('show.bs.modal', function (event) {
+            var button = event.relatedTarget;
+            var service = button.getAttribute('data-service');
+            var modal = this;
+            modal.querySelector('#serviceName').value = service;
+        });
+
+        // Auto-show success modal after 10 seconds
+        setTimeout(function () {
+            var successModal = new bootstrap.Modal(document.getElementById('successModal'));
+            successModal.show();
+        }, 5000);
+
+        // Initialize tooltips
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+    </script>
+</body>
+</html>
