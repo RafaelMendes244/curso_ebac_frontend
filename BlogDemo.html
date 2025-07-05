@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,37 +12,45 @@
             --primary-color: #2563eb;
             --text-color: #334155;
         }
+
         body {
             font-family: 'Segoe UI', sans-serif;
             color: var(--text-color);
         }
+
         .navbar-brand {
             font-weight: 700;
         }
+
         .hero-blog {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                        url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             min-height: 50vh;
         }
+
         .article-card {
             transition: all 0.3s;
             border: none;
             overflow: hidden;
         }
+
         .article-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
+
         .article-img {
             height: 200px;
             object-fit: cover;
         }
+
         .badge-tag {
             background-color: var(--primary-color);
         }
     </style>
 </head>
+
 <body>
     <div class="alert alert-info text-center mb-0 rounded-0">
         <strong>DEMONSTRAÇÃO:</strong> Este é um protótipo estático. O sistema real terá todas as funcionalidades
@@ -81,7 +90,8 @@
             <h1 class="display-4 fw-bold mb-3">Conhecimento que Transforma</h1>
             <p class="lead mb-4">Artigos para impulsionar seu negócio digital</p>
             <form class="d-flex justify-content-center">
-                <input type="search" class="form-control me-2" style="max-width: 400px;" placeholder="Buscar artigos...">
+                <input type="search" class="form-control me-2" style="max-width: 400px;"
+                    placeholder="Buscar artigos...">
                 <button class="btn btn-primary" type="submit"><i class="bi bi-search"></i></button>
             </form>
         </div>
@@ -94,15 +104,16 @@
                 <!-- Artigo Destaque -->
                 <div class="col-lg-8 mb-5">
                     <div class="card border-0 shadow-sm">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
-                             class="card-img-top" alt="Artigo destaque">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                            class="card-img-top" alt="Artigo destaque">
                         <div class="card-body">
                             <div class="mb-3">
                                 <span class="badge badge-tag text-white me-2">Tecnologia</span>
                                 <small class="text-muted">Publicado em: 15/05/2024</small>
                             </div>
                             <h2 class="card-title">Como o SEO Pode Alavancar Seu Negócio em 2024</h2>
-                            <p class="card-text">Neste artigo, exploramos as estratégias mais recentes de otimização para motores de busca que estão transformando negócios online.</p>
+                            <p class="card-text">Neste artigo, exploramos as estratégias mais recentes de otimização
+                                para motores de busca que estão transformando negócios online.</p>
                             <a href="#" class="btn btn-outline-primary">Ler Artigo Completo</a>
                         </div>
                     </div>
@@ -130,10 +141,12 @@
                             <h5 class="card-title">Artigos Populares</h5>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item border-0 px-0">
-                                    <a href="#" class="text-decoration-none">10 Ferramentas Essenciais para Desenvolvedores</a>
+                                    <a href="#" class="text-decoration-none">10 Ferramentas Essenciais para
+                                        Desenvolvedores</a>
                                 </li>
                                 <li class="list-group-item border-0 px-0">
-                                    <a href="#" class="text-decoration-none">Como Criar uma Landing Page que Converte</a>
+                                    <a href="#" class="text-decoration-none">Como Criar uma Landing Page que
+                                        Converte</a>
                                 </li>
                                 <li class="list-group-item border-0 px-0">
                                     <a href="#" class="text-decoration-none">Tendências de Design para 2024</a>
@@ -148,12 +161,13 @@
             <div class="row mt-4">
                 <div class="col-md-6 col-lg-4 mb-4">
                     <div class="card article-card h-100">
-                        <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
-                             class="card-img-top article-img" alt="Artigo 1">
+                        <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                            class="card-img-top article-img" alt="Artigo 1">
                         <div class="card-body">
                             <span class="badge badge-tag text-white mb-2">Marketing</span>
                             <h5 class="card-title">Estratégias de Conteúdo para Redes Sociais</h5>
-                            <p class="card-text">Aprenda a criar conteúdo que engaja e converte no Instagram e LinkedIn.</p>
+                            <p class="card-text">Aprenda a criar conteúdo que engaja e converte no Instagram e LinkedIn.
+                            </p>
                         </div>
                         <div class="card-footer bg-transparent border-0">
                             <a href="#" class="btn btn-sm btn-outline-primary">Ler Mais</a>
@@ -162,8 +176,8 @@
                 </div>
                 <div class="col-md-6 col-lg-4 mb-4">
                     <div class="card article-card h-100">
-                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
-                             class="card-img-top article-img" alt="Artigo 2">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                            class="card-img-top article-img" alt="Artigo 2">
                         <div class="card-body">
                             <span class="badge badge-tag text-white mb-2">Tecnologia</span>
                             <h5 class="card-title">O Futuro do JavaScript em 2024</h5>
@@ -176,8 +190,8 @@
                 </div>
                 <div class="col-md-6 col-lg-4 mb-4">
                     <div class="card article-card h-100">
-                        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
-                             class="card-img-top article-img" alt="Artigo 3">
+                        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                            class="card-img-top article-img" alt="Artigo 3">
                         <div class="card-body">
                             <span class="badge badge-tag text-white mb-2">Negócios</span>
                             <h5 class="card-title">Como Montar um E-commerce do Zero</h5>
@@ -226,4 +240,5 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

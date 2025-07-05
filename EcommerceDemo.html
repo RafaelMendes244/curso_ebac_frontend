@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,34 +12,48 @@
             --primary: #2a59fe;
             --secondary: #f3f6ff;
         }
+
         .product-card {
             transition: all 0.3s;
             border: none;
             overflow: hidden;
         }
+
         .product-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
+
         .cart-badge {
             top: -5px;
             right: -5px;
             font-size: 0.7rem;
         }
+
         .cart-item-img {
             width: 60px;
             height: 60px;
             object-fit: cover;
         }
+
         .animate-bounce {
             animation: bounce 0.5s;
         }
+
         @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
         }
     </style>
 </head>
+
 <body>
     <div class="alert alert-info text-center mb-0 rounded-0">
         <strong>DEMONSTRAÇÃO:</strong> Este é um protótipo estático. O sistema real terá todas as funcionalidades
@@ -53,7 +68,8 @@
             <div class="ms-auto d-flex">
                 <button id="cartButton" class="btn btn-outline-primary position-relative">
                     <i class="bi bi-cart3"></i>
-                    <span id="cartCount" class="position-absolute top-0 start-100 translate-middle badge bg-danger cart-badge">0</span>
+                    <span id="cartCount"
+                        class="position-absolute top-0 start-100 translate-middle badge bg-danger cart-badge">0</span>
                 </button>
             </div>
         </div>
@@ -98,7 +114,8 @@
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-outline-secondary" data-bs-dismiss="modal">Continuar Comprando</button>
-                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#checkoutModal">Finalizar Compra</button>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#checkoutModal">Finalizar
+                        Compra</button>
                 </div>
             </div>
         </div>
@@ -183,7 +200,7 @@
         function initStore() {
             renderProducts();
             updateCart();
-            
+
             // Abre o modal do carrinho
             cartButton.addEventListener('click', () => {
                 const cartModal = new bootstrap.Modal('#cartModal');
@@ -312,4 +329,5 @@
         document.addEventListener('DOMContentLoaded', initStore);
     </script>
 </body>
+
 </html>

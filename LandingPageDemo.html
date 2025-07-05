@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,48 +12,65 @@
             --primary: #ff6b35;
             --secondary: #fff5f2;
         }
+
         body {
             font-family: 'Segoe UI', sans-serif;
             overflow-x: hidden;
         }
+
         .hero-section {
             background: linear-gradient(135deg, #ff6b35 0%, #ef4e1a 100%);
             color: white;
             padding: 6rem 0;
         }
+
         .countdown-box {
-            background: rgba(0,0,0,0.2);
+            background: rgba(0, 0, 0, 0.2);
             border-radius: 10px;
             padding: 1rem;
             display: inline-block;
         }
+
         .countdown-item {
             display: inline-block;
             margin: 0 10px;
             text-align: center;
         }
+
         .countdown-number {
             font-size: 2rem;
             font-weight: bold;
         }
+
         .feature-card {
             transition: all 0.3s;
             border: none;
             border-radius: 15px;
         }
+
         .feature-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
+
         .animate-fadeIn {
             animation: fadeIn 1s;
         }
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
+
 <body>
     <div class="alert alert-info text-center mb-0 rounded-0">
         <strong>DEMONSTRAÇÃO:</strong> Este é um protótipo estático. O sistema real terá todas as funcionalidades
@@ -62,8 +80,9 @@
     <header class="hero-section text-center">
         <div class="container">
             <h1 class="display-4 fw-bold mb-4 animate-fadeIn">DOMINE O MERCADO DIGITAL</h1>
-            <p class="lead mb-5 animate-fadeIn" style="animation-delay: 0.2s">Sua Landing Page profissional pronta em 7 dias!</p>
-            
+            <p class="lead mb-5 animate-fadeIn" style="animation-delay: 0.2s">Sua Landing Page profissional pronta em 7
+                dias!</p>
+
             <!-- Contador Regressivo -->
             <div class="countdown-box mb-5 animate-fadeIn" style="animation-delay: 0.4s">
                 <div class="countdown-item">
@@ -83,21 +102,26 @@
                     <div>Segundos</div>
                 </div>
             </div>
-            
+
             <!-- Formulário -->
             <div class="row justify-content-center animate-fadeIn" style="animation-delay: 0.6s">
                 <div class="col-lg-6">
-                    <form id="leadForm" action="https://formsubmit.co/gabriel.mito07@gmail.com" method="POST" class="bg-white p-4 rounded shadow">
+                    <form id="leadForm" action="https://formsubmit.co/gabriel.mito07@gmail.com" method="POST"
+                        class="bg-white p-4 rounded shadow">
                         <input type="hidden" name="_subject" value="Novo Lead - Landing Page">
-                        <input type="hidden" name="_autoresponse" value="Obrigado pelo interesse! Em breve enviaremos sua proposta.">
+                        <input type="hidden" name="_autoresponse"
+                            value="Obrigado pelo interesse! Em breve enviaremos sua proposta.">
                         <div class="mb-3">
-                            <input type="text" name="name" class="form-control form-control-lg" placeholder="Seu nome" required>
+                            <input type="text" name="name" class="form-control form-control-lg" placeholder="Seu nome"
+                                required>
                         </div>
                         <div class="mb-3">
-                            <input type="email" name="email" class="form-control form-control-lg" placeholder="Seu melhor e-mail" required>
+                            <input type="email" name="email" class="form-control form-control-lg"
+                                placeholder="Seu melhor e-mail" required>
                         </div>
                         <div class="mb-3">
-                            <input type="tel" name="phone" class="form-control form-control-lg" placeholder="WhatsApp (opcional)">
+                            <input type="tel" name="phone" class="form-control form-control-lg"
+                                placeholder="WhatsApp (opcional)">
                         </div>
                         <button type="submit" class="btn btn-dark btn-lg w-100">
                             <i class="bi bi-arrow-right me-2"></i> QUERO MINHA LANDING PAGE
@@ -151,13 +175,15 @@
                 <div class="col-md-6">
                     <div class="card p-4 h-100">
                         <div class="d-flex align-items-center mb-3">
-                            <img src="https://randomuser.me/api/portraits/women/32.jpg" class="rounded-circle me-3" width="60" alt="Cliente">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" class="rounded-circle me-3"
+                                width="60" alt="Cliente">
                             <div>
                                 <h5 class="mb-0">Ana Carolina</h5>
                                 <small class="text-muted">Consultora de Marketing</small>
                             </div>
                         </div>
-                        <p>"Minha taxa de conversão subiu de 3% para 12% após a nova landing page. Melhor investimento!"</p>
+                        <p>"Minha taxa de conversão subiu de 3% para 12% após a nova landing page. Melhor investimento!"
+                        </p>
                         <div class="mt-auto">
                             <i class="bi bi-star-fill text-warning"></i>
                             <i class="bi bi-star-fill text-warning"></i>
@@ -170,7 +196,8 @@
                 <div class="col-md-6">
                     <div class="card p-4 h-100">
                         <div class="d-flex align-items-center mb-3">
-                            <img src="https://randomuser.me/api/portraits/men/54.jpg" class="rounded-circle me-3" width="60" alt="Cliente">
+                            <img src="https://randomuser.me/api/portraits/men/54.jpg" class="rounded-circle me-3"
+                                width="60" alt="Cliente">
                             <div>
                                 <h5 class="mb-0">Carlos Eduardo</h5>
                                 <small class="text-muted">Empresário</small>
@@ -194,11 +221,11 @@
     <footer class="bg-dark text-white py-5">
         <div class="container text-center">
             <h3 class="mb-4">Pronto para transformar seus resultados?</h3>
-            <a href="https://rmsites.vercel.app/" class="btn btn-primary btn-lg">
+            <a href="index.html" class="btn btn-primary btn-lg">
                 <i class="bi bi-arrow-up-circle me-2"></i> Voltar para a Oferta
             </a>
             <div class="mt-5">
-                <p>© 2025 WebSites Premium. Todos os direitos reservados - RM.</p>
+                <p>© 2025 WebSites RM. Todos os direitos reservados.</p>
                 <div class="social-icons mt-3">
                     <a href="#" class="text-white mx-2"><i class="bi bi-facebook"></i></a>
                     <a href="#" class="text-white mx-2"><i class="bi bi-instagram"></i></a>
@@ -233,7 +260,7 @@
         updateCountdown();
 
         // Validação do formulário
-        document.getElementById('leadForm').addEventListener('submit', function(e) {
+        document.getElementById('leadForm').addEventListener('submit', function (e) {
             const email = this.elements['email'].value;
             if (!email.includes('@')) {
                 e.preventDefault();
@@ -266,4 +293,5 @@
         animateOnScroll(); // Executa uma vez ao carregar
     </script>
 </body>
+
 </html>
