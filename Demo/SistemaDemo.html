@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Web Profissional - Demonstração</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --sidebar-width: 250px;
+            --dark-color: #1e293b;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f8fafc;
+        }
+
+        /* Sidebar */
+        #sidebar {
+            width: var(--sidebar-width);
+            height: 100vh;
+            position: fixed;
+            background-color: var(--dark-color);
+            color: white;
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+
+        /* Conteúdo principal */
+        #content {
+            margin-left: var(--sidebar-width);
+            transition: all 0.3s;
+            min-height: 100vh;
+        }
+
+        /* Links do menu */
+        .sidebar-link {
+            color: rgba(255, 255, 255, 0.8);
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .sidebar-link:hover,
+        .sidebar-link.active {
+            color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Cards do dashboard */
+        .dashboard-card {
+            border: none;
+            border-radius: 10px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsividade */
+        @media (max-width: 992px) {
+            #sidebar {
+                margin-left: -100%;
+            }
+
+            #sidebar.active {
+                margin-left: 0;
+            }
+
+            #content {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="alert alert-info text-center mb-0 rounded-0">
+        <strong>DEMONSTRAÇÃO:</strong> Este é um protótipo estático. O sistema real terá todas as funcionalidades
+        implementadas.
+    </div>
+    <!-- Sidebar -->
+    <div id="sidebar" class="d-flex flex-column">
+        <div class="p-4 text-center">
+            <h4 class="mb-0"><i class="bi bi-speedometer2 me-2"></i>Sys<span class="text-primary">Manager</span></h4>
+            <small class="text-muted">v2.0</small>
+        </div>
+        <ul class="nav flex-column px-3 mt-3">
+            <li class="nav-item mb-2">
+                <a class="nav-link sidebar-link active" href="#"><i class="bi bi-house-door me-2"></i>Dashboard</a>
+            </li>
+            <li class="nav-item mb-2">
+                <a class="nav-link sidebar-link" href="#"><i class="bi bi-people me-2"></i>Clientes</a>
+            </li>
+            <li class="nav-item mb-2">
+                <a class="nav-link sidebar-link" href="#"><i class="bi bi-box-seam me-2"></i>Produtos</a>
+            </li>
+            <li class="nav-item mb-2">
+                <a class="nav-link sidebar-link" href="#"><i class="bi bi-graph-up me-2"></i>Relatórios</a>
+            </li>
+            <li class="nav-item mb-2">
+                <a class="nav-link sidebar-link" href="#"><i class="bi bi-gear me-2"></i>Configurações</a>
+            </li>
+        </ul>
+        <div class="mt-auto p-3 border-top border-secondary">
+            <div class="d-flex align-items-center">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" width="40" class="rounded-circle me-2"
+                    alt="Usuário">
+                <div>
+                    <small class="d-block text-muted">Logado como</small>
+                    <strong>Admin</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Conteúdo Principal -->
+    <div id="content">
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+            <div class="container-fluid">
+                <button id="sidebarToggle" class="btn btn-link me-2">
+                    <i class="bi bi-list" style="font-size: 1.5rem;"></i>
+                </button>
+                <h5 class="mb-0 d-none d-lg-block">Dashboard</h5>
+                <div class="ms-auto d-flex">
+                    <div class="input-group d-none d-md-flex" style="width: 250px;">
+                        <input type="text" class="form-control" placeholder="Pesquisar...">
+                        <button class="btn btn-primary"><i class="bi bi-search"></i></button>
+                    </div>
+                    <button class="btn btn-link ms-2">
+                        <i class="bi bi-bell" style="font-size: 1.2rem;"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Área de Conteúdo -->
+        <div class="container-fluid p-4">
+            <div class="row g-4">
+                <!-- Card 1 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card dashboard-card bg-primary bg-gradient text-white">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <h6 class="card-title mb-2">Clientes</h6>
+                                    <h2 class="mb-0">142</h2>
+                                </div>
+                                <i class="bi bi-people" style="font-size: 2rem;"></i>
+                            </div>
+                            <div class="mt-3">
+                                <small><i class="bi bi-arrow-up"></i> 5% este mês</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card dashboard-card bg-success bg-gradient text-white">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <h6 class="card-title mb-2">Vendas</h6>
+                                    <h2 class="mb-0">R$ 28K</h2>
+                                </div>
+                                <i class="bi bi-currency-dollar" style="font-size: 2rem;"></i>
+                            </div>
+                            <div class="mt-3">
+                                <small><i class="bi bi-arrow-up"></i> 12% este mês</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card dashboard-card bg-warning bg-gradient text-dark">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <h6 class="card-title mb-2">Pedidos</h6>
+                                    <h2 class="mb-0">56</h2>
+                                </div>
+                                <i class="bi bi-cart" style="font-size: 2rem;"></i>
+                            </div>
+                            <div class="mt-3">
+                                <small><i class="bi bi-arrow-down"></i> 2% este mês</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card dashboard-card bg-danger bg-gradient text-white">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <h6 class="card-title mb-2">Tickets</h6>
+                                    <h2 class="mb-0">8</h2>
+                                </div>
+                                <i class="bi bi-ticket-detailed" style="font-size: 2rem;"></i>
+                            </div>
+                            <div class="mt-3">
+                                <small><i class="bi bi-arrow-up"></i> 3 novos hoje</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gráfico e Tabela (Placeholder) -->
+            <div class="row mt-4">
+                <div class="col-lg-8">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Vendas Mensais</h5>
+                            <div class="d-flex align-items-center justify-content-center"
+                                style="height: 250px; background-color: #f8f9fa; border-radius: 8px;">
+                                <p class="text-muted mb-0">[Área para gráfico de vendas]</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Atividades Recentes</h5>
+                            <div class="list-group list-group-flush">
+                                <div class="list-group-item border-0 px-0">
+                                    <div class="d-flex">
+                                        <div class="me-3 text-primary">
+                                            <i class="bi bi-cart-check" style="font-size: 1.2rem;"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-1">Novo pedido #1256</h6>
+                                            <small class="text-muted">Há 2 horas</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list-group-item border-0 px-0">
+                                    <div class="d-flex">
+                                        <div class="me-3 text-success">
+                                            <i class="bi bi-currency-dollar" style="font-size: 1.2rem;"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-1">Pagamento aprovado</h6>
+                                            <small class="text-muted">Há 5 horas</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list-group-item border-0 px-0">
+                                    <div class="d-flex">
+                                        <div class="me-3 text-warning">
+                                            <i class="bi bi-person-plus" style="font-size: 1.2rem;"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-1">Novo cliente cadastrado</h6>
+                                            <small class="text-muted">Hoje cedo</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção de Contato (Opcional) -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="card shadow-sm">
+                        <div class="card-body text-center py-5">
+                            <h3>Gostou deste sistema?</h3>
+                            <p class="lead mb-4">Solicite um orçamento personalizado para sua empresa</p>
+                            <a href="#contact" class="btn btn-primary btn-lg me-2">
+                                <i class="bi bi-chat-left-text me-2"></i>Fale Conosco
+                            </a>
+                            <a href="https://seusite.com/servicos" class="btn btn-outline-primary btn-lg">
+                                <i class="bi bi-eye me-2"></i>Ver Mais Serviços
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Menu Hamburguer Funcional
+        document.getElementById('sidebarToggle').addEventListener('click', function () {
+            document.getElementById('sidebar').classList.toggle('active');
+        });
+
+        // Fechar menu ao clicar em um link (mobile)
+        document.querySelectorAll('.sidebar-link').forEach(link => {
+            link.addEventListener('click', function () {
+                if (window.innerWidth < 992) {
+                    document.getElementById('sidebar').classList.remove('active');
+                }
+            });
+        });
+
+        // Exemplo de interação com cards
+        document.querySelectorAll('.dashboard-card').forEach(card => {
+            card.addEventListener('click', function () {
+                alert('No sistema real, este card redirecionaria para a página correspondente!');
+            });
+        });
+
+        // Simular logout (apenas para demonstração)
+        document.querySelector('nav').addEventListener('dblclick', function () {
+            if (confirm('Deseja sair do sistema?')) {
+                alert('Redirecionando para a página de login...');
+            }
+        });
+    </script>
+</body>
+
+</html>

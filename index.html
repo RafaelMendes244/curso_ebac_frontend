@@ -5,19 +5,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>WebSites Premium - Criação de Sites Profissionais</title>
+    <meta name="description"
+        content="Criação de sites profissionais, landing pages e e-commerce. Soluções sob medida para seu negócio.">
+    <meta name="keywords" content="criação de sites, desenvolvedor web, landing page, e-commerce">
+    <meta name="author" content="Rafael Mendes">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <style>
         :root {
-            --primary-color: #0d6efd;
-            --secondary-color: #6c757d;
-            --dark-color: #343a40;
-            --light-color: #f8f9fa;
+            /* Cores principais */
+            --primary-color: #2563eb;
+            /* Azul mais vibrante */
+            --primary-dark: #1d4ed8;
+            /* Azul escuro para hover */
+            --secondary-color: #7c3aed;
+            /* Roxo para destaques */
+            --accent-color: #f59e0b;
+            /* Amarelo/laranja para CTAs */
+            --dark-color: #1e293b;
+            /* Preto azulado */
+            --light-color: #f8fafc;
+            /* Branco suave */
+
+            /* Tons de cinza */
+            --gray-200: #e2e8f0;
+            --gray-500: #64748b;
+
+            /* Sombras */
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
         }
 
         body {
+            opacity: 0;
+            animation: fadeIn 0.5s forwards;
             font-family: 'Segoe UI', sans-serif;
             scroll-behavior: smooth;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
         }
 
         .navbar {
@@ -163,6 +193,7 @@
 
         .service-card {
             min-height: 450px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
@@ -171,7 +202,7 @@
     <!-- Navbar -->
     <nav id="navbar-example" class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="#">
+            <a class="navbar-brand fw-bold" href="#" onclick="scrollToSection('home'); return false;">
                 <i class="bi bi-globe"></i> WebSites Premium
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -180,19 +211,19 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#home">Home</a>
+                        <a class="nav-link active" href="#" onclick="scrollToSection('home'); return false;">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#services">Serviços</a>
+                        <a class="nav-link" href="#" onclick="scrollToSection('services'); return false;">Serviços</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">Sobre Mim</a>
+                        <a class="nav-link" href="#" onclick="scrollToSection('about'); return false;">Sobre Mim</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="#testimonials">Depoimentos</a>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contato</a>
+                        <a class="nav-link" href="#" onclick="scrollToSection('contact'); return false;">Contato</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -213,9 +244,6 @@
                     </li>
                 </ul>
                 <div class="d-flex">
-                    <button class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#loginModal">
-                        <i class="bi bi-box-arrow-in-right"></i> Login
-                    </button>
                     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#contactModal">
                         <i class="bi bi-chat-dots"></i> Fale Conosco
                     </button>
@@ -349,6 +377,10 @@
                                         <li class="list-group-item"><i class="bi bi-check-circle text-success"></i>
                                             Formulário de Contato</li>
                                     </ul>
+                                    <a href="./Demo/OnePageDemo.html" target="_blank"
+                                        class="btn btn-outline-primary w-100 mb-2">
+                                        <i class="bi bi-eye-fill me-2"></i> Ver Demonstração
+                                    </a>
                                     <button class="btn btn-cta w-100" data-bs-toggle="modal"
                                         data-bs-target="#quoteModal" data-service="Site One Page">
                                         Solicitar Orçamento
@@ -373,6 +405,10 @@
                                         <li class="list-group-item"><i class="bi bi-check-circle text-success"></i> SEO
                                             Básico</li>
                                     </ul>
+                                    <a href="./Demo/InstitucionalDemo.html" target="_blank"
+                                        class="btn btn-outline-primary w-100 mb-2">
+                                        <i class="bi bi-eye-fill me-2"></i> Ver Demonstração
+                                    </a>
                                     <button class="btn btn-cta w-100" data-bs-toggle="modal"
                                         data-bs-target="#quoteModal" data-service="Site Institucional">
                                         Solicitar Orçamento
@@ -397,6 +433,10 @@
                                         <li class="list-group-item"><i class="bi bi-check-circle text-success"></i>
                                             Formulário de Captura</li>
                                     </ul>
+                                    <a href="./Demo/LandingPageDemo.html" target="_blank"
+                                        class="btn btn-outline-primary w-100 mb-2">
+                                        <i class="bi bi-eye-fill me-2"></i> Ver Demonstração
+                                    </a>
                                     <button class="btn btn-cta w-100" data-bs-toggle="modal"
                                         data-bs-target="#quoteModal" data-service="Landing Page">
                                         Solicitar Orçamento
@@ -425,6 +465,10 @@
                                         <li class="list-group-item"><i class="bi bi-check-circle text-success"></i>
                                             Integração com Redes Sociais</li>
                                     </ul>
+                                    <a href="/Demo/BlogDemo.html" target="_blank"
+                                        class="btn btn-outline-primary w-100 mb-2">
+                                        <i class="bi bi-eye-fill me-2"></i> Ver Demonstração
+                                    </a>
                                     <button class="btn btn-cta w-100" data-bs-toggle="modal"
                                         data-bs-target="#quoteModal" data-service="Blog Profissional">
                                         Solicitar Orçamento
@@ -449,6 +493,10 @@
                                         <li class="list-group-item"><i class="bi bi-check-circle text-success"></i>
                                             Painel Administrativo</li>
                                     </ul>
+                                    <a href="./Demo/EcommerceDemo.html" target="_blank"
+                                        class="btn btn-outline-primary w-100 mb-2">
+                                        <i class="bi bi-eye-fill me-2"></i> Ver Demonstração
+                                    </a>
                                     <button class="btn btn-cta w-100" data-bs-toggle="modal"
                                         data-bs-target="#quoteModal" data-service="Loja Virtual Básica">
                                         Solicitar Orçamento
@@ -525,6 +573,10 @@
                                         <li class="list-group-item"><i class="bi bi-check-circle text-success"></i>
                                             Relatórios Avançados</li>
                                     </ul>
+                                    <a href="/Demo/SistemaDemo.html" target="_blank"
+                                        class="btn btn-outline-primary w-100 mb-2">
+                                        <i class="bi bi-eye-fill me-2"></i> Ver Demonstração
+                                    </a>
                                     <button class="btn btn-cta w-100" data-bs-toggle="modal"
                                         data-bs-target="#quoteModal" data-service="Sistema Web">
                                         Solicitar Orçamento
@@ -600,8 +652,8 @@
                             </h2>
                             <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#aboutAccordion">
                                 <div class="accordion-body">
-                                    Tenho mais de 5 anos de experiência no desenvolvimento de sites e sistemas web,
-                                    trabalhando com diversas tecnologias e frameworks para entregar os melhores
+                                    Sou novo no desenvolvimento de sites e sistemas web,
+                                    trabalho com diversas tecnologias e frameworks para entregar os melhores
                                     resultados para meus clientes.
                                 </div>
                             </div>
@@ -639,10 +691,11 @@
                             <h5 class="card-title">Rafael Mendes</h5>
                             <p class="card-text">Desenvolvedor Web Full Stack</p>
                             <div class="d-flex justify-content-center">
-                                <a href="https://www.linkedin.com/in/fael-mendesdev/" class="btn btn-outline-primary me-2"><i class="bi bi-linkedin"></i>
+                                <a href="https://www.linkedin.com/in/fael-mendesdev/" target="_blank"
+                                    class="btn btn-outline-primary me-2"><i class="bi bi-linkedin"></i>
                                     LinkedIn</a>
-                                <a href="https://github.com/RafaelMendes244" class="btn btn-outline-primary"><i
-                                        class="bi bi-github"></i> GitHub</a>
+                                <a href="https://github.com/RafaelMendes244" target="_blank"
+                                    class="btn btn-outline-primary"><i class="bi bi-github"></i> GitHub</a>
                             </div>
                         </div>
                     </div>
@@ -652,7 +705,7 @@
     </section>
 
     <!-- Sessao de Testemunhos -->
-    <section id="testimonials" class="py-5">
+    <!-- <section id="testimonials" class="py-5">
         <div class="container">
             <h2 class="text-center section-title">Depoimentos</h2>
             <p class="text-center mb-5">Veja o que nossos clientes dizem sobre nossos serviços</p>
@@ -744,9 +797,9 @@
                 </button>
             </div>
         </div>
-    </section>
+    </section> -->
 
-    <!-- Sessao de Contatos -->
+    <!-- Sessao Escolha do Serviço -->
     <section id="contact" class="py-5">
         <div class="container">
             <h2 class="text-center section-title">Entre em Contato</h2>
@@ -755,22 +808,26 @@
 
             <div class="row">
                 <div class="col-lg-6 mb-4 mb-lg-0">
-                    <form>
+                    <form action="https://formsubmit.co/gabriel.mito07@gmail.com" method="POST">
+                        <input type="hidden" name="_subject" value="Novo contato do site!">
+                        <input type="hidden" name="_autoresponse"
+                            value="Obrigado pelo seu contato! Responderei em breve.">
+                        <input type="hidden" name="_template" value="table">
                         <div class="mb-3">
                             <label for="name" class="form-label">Nome Completo</label>
-                            <input type="text" class="form-control" id="name" required>
+                            <input type="text" class="form-control" name="name" required>
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">E-mail</label>
-                            <input type="email" class="form-control" id="email" required>
+                            <input type="email" class="form-control" name="email" required>
                         </div>
                         <div class="mb-3">
                             <label for="phone" class="form-label">Telefone</label>
-                            <input type="tel" class="form-control" id="phone">
+                            <input type="tel" class="form-control" name="phone">
                         </div>
                         <div class="mb-3">
                             <label for="service" class="form-label">Serviço de Interesse</label>
-                            <select class="form-select" id="service">
+                            <select class="form-select" name="service">
                                 <option selected>Selecione um serviço</option>
                                 <option>Site One Page</option>
                                 <option>Site Institucional</option>
@@ -783,7 +840,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="message" class="form-label">Mensagem</label>
-                            <textarea style="resize: none;" class="form-control" id="message" rows="5"
+                            <textarea style="resize: none;" class="form-control" name="message" rows="5"
                                 required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
@@ -839,11 +896,19 @@
                     <p class="mb-0">Receba dicas e novidades sobre desenvolvimento web</p>
                 </div>
                 <div class="col-md-6">
-                    <form class="row g-2">
-                        <div class="col-8">
-                            <input type="email" class="form-control" placeholder="Seu melhor e-mail" required>
+                    <form action="https://formsubmit.co/gabriel.mito07@gmail.com" method="POST" class="row g-2">
+                        <input type="hidden" name="_subject" value="Novo contato do site!">
+                        <input type="hidden" name="_autoresponse"
+                            value="Obrigado pelo seu contato! Responderei em breve.">
+                        <input type="hidden" name="_template" value="table">
+                        <div class="col-12 col-md-4 mb-2 mb-md-0">
+                            <input type="text" class="form-control" name="name" placeholder="Seu nome" required>
                         </div>
-                        <div class="col-4">
+                        <div class="col-12 col-md-5 mb-2 mb-md-0">
+                            <input type="email" class="form-control" name="email" placeholder="Seu melhor e-mail"
+                                required>
+                        </div>
+                        <div class="col-12 col-md-3">
                             <button type="submit" class="btn btn-light w-100">Assinar</button>
                         </div>
                     </form>
@@ -869,18 +934,18 @@
                 <div class="col-md-2 mb-4 mb-md-0">
                     <h5>Serviços</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="text-white">Sites Institucionais</a></li>
-                        <li><a href="#" class="text-white">Loja Virtual</a></li>
-                        <li><a href="#" class="text-white">Landing Pages</a></li>
-                        <li><a href="#" class="text-white">Blogs</a></li>
+                        <li><a href="/Demo/InstitucionalDemo.html" target="_blank" class="text-white">Sites Institucionais</a></li>
+                        <li><a href="/Demo/EcommerceDemo.html" target="_blank" class="text-white">Loja Virtual</a></li>
+                        <li><a href="/Demo/LandingPageDemo.html" target="_blank" class="text-white">Landing Pages</a></li>
+                        <li><a href="/Demo/BlogDemo.html" target="_blank" class="text-white">Blogs</a></li>
                     </ul>
                 </div>
                 <div class="col-md-2 mb-4 mb-md-0">
                     <h5>Links Úteis</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="text-white">Blog</a></li>
-                        <li><a href="#" class="text-white">Portfólio</a></li>
-                        <li><a href="#" class="text-white">FAQ</a></li>
+                        <li><a href="#" data-bs-toggle="modal" data-bs-target="#blogModal" class="text-white">Blog</a></li>
+                        <li><a href="#" data-bs-toggle="modal" data-bs-target="#portfolioModal" class="text-white">Portfólio</a></li>
+                        <li><a href="#" data-bs-toggle="modal" data-bs-target="#faqModal" class="text-white">FAQ</a></li>
                         <li><a href="#" class="text-white">Termos de Uso</a></li>
                     </ul>
                 </div>
@@ -903,15 +968,10 @@
             </div>
             <hr class="my-4 bg-light">
             <div class="text-center">
-                <p class="mb-0">Desenvolvido por Rafael Mendes para EBAC © 2023. Todos os direitos reservados.</p>
+                <p class="mb-0">Desenvolvido por Rafael Mendes © 2025. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
-
-    <!-- Botao de Voltar ao Topo -->
-    <a href="#" class="back-to-top btn btn-primary rounded-circle p-3" title="Voltar ao topo">
-        <i class="bi bi-arrow-up"></i>
-    </a>
 
     <!-- Modal Para Solicitar Orçamento -->
     <div class="modal fade" id="quoteModal" tabindex="-1" aria-labelledby="quoteModalLabel" aria-hidden="true">
@@ -922,7 +982,11 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form action="https://formsubmit.co/gabriel.mito07@gmail.com" method="POST">
+                        <input type="hidden" name="_subject" value="Novo contato do site!">
+                        <input type="hidden" name="_autoresponse"
+                            value="Obrigado pelo seu contato! Responderei em breve.">
+                        <input type="hidden" name="_template" value="table">
                         <div class="mb-3">
                             <label for="serviceName" class="form-label">Serviço</label>
                             <input type="text" class="form-control" id="serviceName" readonly>
@@ -962,7 +1026,11 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form action="https://formsubmit.co/gabriel.mito07@gmail.com" method="POST">
+                        <input type="hidden" name="_subject" value="Novo contato do site!">
+                        <input type="hidden" name="_autoresponse"
+                            value="Obrigado pelo seu contato! Responderei em breve.">
+                        <input type="hidden" name="_template" value="table">
                         <div class="mb-3">
                             <label for="contactName" class="form-label">Nome</label>
                             <input type="text" class="form-control" id="contactName" required>
@@ -985,42 +1053,6 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                     <button type="button" class="btn btn-primary">Enviar Mensagem</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal de Login -->
-    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="loginModalLabel">Área do Cliente</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="loginEmail" class="form-label">E-mail</label>
-                            <input type="email" class="form-control" id="loginEmail" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="loginPassword" class="form-label">Senha</label>
-                            <input type="password" class="form-control" id="loginPassword" required>
-                        </div>
-                        <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="rememberMe">
-                            <label class="form-check-label" for="rememberMe">Lembrar de mim</label>
-                        </div>
-                        <button type="submit" class="btn btn-primary w-100">Entrar</button>
-                    </form>
-                    <div class="text-center mt-3">
-                        <a href="#">Esqueci minha senha</a>
-                    </div>
-                </div>
-                <div class="modal-footer justify-content-center">
-                    <p class="mb-0">Não tem uma conta? <a href="#" data-bs-toggle="modal"
-                            data-bs-target="#registerModal">Cadastre-se</a></p>
                 </div>
             </div>
         </div>
@@ -1084,102 +1116,107 @@
     </div>
 
     <!-- Modais de Mais e Portfolio -->
-<div class="modal fade" id="blogModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Blog</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>Conteúdo do blog em desenvolvimento. Em breve artigos sobre desenvolvimento web, dicas e novidades.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+    <div class="modal fade" id="blogModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Blog</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Conteúdo do blog em desenvolvimento. Em breve artigos sobre desenvolvimento web, dicas e
+                        novidades.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<div class="modal fade" id="portfolioModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Meu Portfólio</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>Confira alguns dos meus trabalhos recentes:</p>
-                <div class="row">
-                    <div class="col-md-6 mb-4">
-                        <div class="card h-100">
-                            <img src="./imagens/RMSimulador.png" class="card-img-top" alt="RM Simulador">
-                            <div class="card-body">
-                                <h5 class="card-title">RM Simulador</h5>
-                                <p class="card-text">Sistema completo para simulação da Prova do ENEM com dashboard interativo.</p>
+    <div class="modal fade" id="portfolioModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Meu Portfólio</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Confira alguns dos meus trabalhos recentes:</p>
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <img src="./imagens/RMSimulador.png" class="card-img-top" alt="RM Simulador">
+                                <div class="card-body">
+                                    <h5 class="card-title">RM Simulador</h5>
+                                    <p class="card-text">Sistema completo para simulação da Prova do ENEM com dashboard
+                                        interativo.</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 mb-4">
-                        <div class="card h-100">
-                            <img src="./imagens/VersiculoDia.png" class="card-img-top" alt="Versículo do Dia">
-                            <div class="card-body">
-                                <h5 class="card-title">Versículo do Dia</h5>
-                                <p class="card-text">Aplicativo devocional diário com integração a API bíblica.</p>
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <img src="./imagens/VersiculoDia.png" class="card-img-top" alt="Versículo do Dia">
+                                <div class="card-body">
+                                    <h5 class="card-title">Versículo do Dia</h5>
+                                    <p class="card-text">Aplicativo devocional diário com integração a API bíblica.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                <a href="#" class="btn btn-primary" data-bs-dismiss="modal">Ver mais detalhes</a>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <a href="#" class="btn btn-primary" data-bs-dismiss="modal">Ver mais detalhes</a>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<div class="modal fade" id="faqModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Perguntas Frequentes</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="accordion" id="faqAccordion">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqOne">
-                                Quanto tempo leva para desenvolver um site?
-                            </button>
-                        </h2>
-                        <div id="faqOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                O prazo varia conforme o tipo de projeto. Sites one page levam em média 1-2 semanas, enquanto e-commerces podem levar de 3-6 semanas.
+    <div class="modal fade" id="faqModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Perguntas Frequentes</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faqOne">
+                                    Quanto tempo leva para desenvolver um site?
+                                </button>
+                            </h2>
+                            <div id="faqOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    O prazo varia conforme o tipo de projeto. Sites one page levam em média 1-2 semanas,
+                                    enquanto e-commerces podem levar de 3-6 semanas.
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqTwo">
-                                Vocês fazem manutenção após a entrega?
-                            </button>
-                        </h2>
-                        <div id="faqTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                Sim, ofereço pacotes de manutenção mensal conforme a necessidade de cada cliente.
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faqTwo">
+                                    Vocês fazem manutenção após a entrega?
+                                </button>
+                            </h2>
+                            <div id="faqTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Sim, ofereço pacotes de manutenção mensal conforme a necessidade de cada cliente.
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -1208,7 +1245,7 @@
             modal.querySelector('#serviceName').value = service;
         });
 
-        // Auto-show success modal after 10 seconds
+        // Auto-show success modal after 5 seconds
         setTimeout(function () {
             var successModal = new bootstrap.Modal(document.getElementById('successModal'));
             successModal.show();
@@ -1219,6 +1256,51 @@
         var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
             return new bootstrap.Tooltip(tooltipTriggerEl);
         });
+
+        // Mensagem para Confirmar Envio do Email para Usuario
+        document.addEventListener('DOMContentLoaded', function () {
+            // Confirmação de envio para todos os formulários
+            document.querySelectorAll('form').forEach(form => {
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    const formData = new FormData(this);
+
+                    fetch(this.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    })
+                        .then(response => {
+                            if (response.ok) {
+                                alert('Mensagem enviada com sucesso! Entrarei em contato em breve.');
+                                this.reset();
+                            } else {
+                                throw new Error('Erro no envio');
+                            }
+                        })
+                        .catch(error => {
+                            alert('Houve um problema ao enviar sua mensagem. Por favor, tente novamente mais tarde.');
+                            console.error('Error:', error);
+                        });
+                });
+            });
+        });
+
+        // Scroll para nao aparecer nome dos IDS/Sessao
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
     </script>
+
+    <!-- Botao de Voltar ao Topo -->
+    <a href="#" onclick="scrollToSection('home'); return false;" class="back-to-top btn btn-primary rounded-circle p-3" title="Voltar ao topo">
+        <i class="bi bi-arrow-up"></i>
+    </a>
 </body>
+
 </html>
