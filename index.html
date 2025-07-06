@@ -993,27 +993,28 @@
                         <input type="hidden" name="_template" value="table">
                         <div class="mb-3">
                             <label for="serviceName" class="form-label">Serviço</label>
-                            <input type="text" class="form-control" id="serviceName" readonly>
+                            <input type="text" class="form-control" id="serviceName" name="service" readonly>
                         </div>
                         <div class="mb-3">
                             <label for="clientName" class="form-label">Nome</label>
-                            <input type="text" class="form-control" id="clientName" required>
+                            <input type="text" class="form-control" id="clientName" name="name" required>
                         </div>
                         <div class="mb-3">
                             <label for="clientEmail" class="form-label">E-mail</label>
-                            <input type="email" class="form-control" id="clientEmail" required>
+                            <input type="email" class="form-control" id="clientEmail" name="email" required>
                         </div>
                         <div class="mb-3">
                             <label for="clientPhone" class="form-label">Telefone</label>
-                            <input type="tel" class="form-control" id="clientPhone" required>
+                            <input type="tel" class="form-control" id="clientPhone" name="phone" required>
                         </div>
                         <div class="mb-3">
                             <label for="clientMessage" class="form-label">Detalhes do Projeto</label>
-                            <textarea style="resize: none;" class="form-control" id="clientMessage" rows="3"></textarea>
+                            <textarea style="resize: none;" class="form-control" id="clientMessage" rows="3"
+                                name="message"></textarea>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                            <button type="button" class="btn btn-primary">Enviar Solicitação</button>
+                            <button type="submit" class="btn btn-primary">Enviar Solicitação</button>
                         </div>
                     </form>
                 </div>
@@ -1037,24 +1038,24 @@
                         <input type="hidden" name="_template" value="table">
                         <div class="mb-3">
                             <label for="contactName" class="form-label">Nome</label>
-                            <input type="text" class="form-control" id="contactName" required>
+                            <input type="text" class="form-control" id="contactName" name="name" required>
                         </div>
                         <div class="mb-3">
                             <label for="contactEmail" class="form-label">E-mail</label>
-                            <input type="email" class="form-control" id="contactEmail" required>
+                            <input type="email" class="form-control" id="contactEmail" name="email" required>
                         </div>
                         <div class="mb-3">
                             <label for="contactSubject" class="form-label">Assunto</label>
-                            <input type="text" class="form-control" id="contactSubject" required>
+                            <input type="text" class="form-control" id="contactSubject" name="assunto" required>
                         </div>
                         <div class="mb-3">
                             <label for="contactMessage" class="form-label">Mensagem</label>
                             <textarea style="resize: none;" class="form-control" id="contactMessage" rows="3"
-                                required></textarea>
+                                name="message" required></textarea>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                            <button type="button" class="btn btn-primary">Enviar Mensagem</button>
+                            <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
                         </div>
                     </form>
                 </div>
@@ -1262,73 +1263,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        // Back to top button
-        window.addEventListener('scroll', function () {
-            var backToTop = document.querySelector('.back-to-top');
-            if (window.pageYOffset > 300) {
-                backToTop.style.display = 'block';
-            } else {
-                backToTop.style.display = 'none';
-            }
-        });
-
-        document.querySelector('.back-to-top').addEventListener('click', function (e) {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // Quote modal service name
-        document.getElementById('quoteModal').addEventListener('show.bs.modal', function (event) {
-            var button = event.relatedTarget;
-            var service = button.getAttribute('data-service');
-            var modal = this;
-            modal.querySelector('#serviceName').value = service;
-        });
-
-        // Auto-show success modal after 5 seconds
-        setTimeout(function () {
-            var successModal = new bootstrap.Modal(document.getElementById('successModal'));
-            successModal.show();
-        }, 5000);
-
-        // Initialize tooltips
-        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-            return new bootstrap.Tooltip(tooltipTriggerEl);
-        });
-
-        // Mensagem para Confirmar Envio do Email para Usuario
-        document.addEventListener('DOMContentLoaded', function () {
-            // Confirmação de envio para todos os formulários
-            document.querySelectorAll('form').forEach(form => {
-                form.addEventListener('submit', function (e) {
-                    e.preventDefault();
-                    const formData = new FormData(this);
-
-                    fetch(this.action, {
-                        method: 'POST',
-                        body: formData,
-                        headers: {
-                            'Accept': 'application/json'
-                        }
-                    })
-                        .then(response => {
-                            if (response.ok) {
-                                alert('Mensagem enviada com sucesso! Entrarei em contato em breve.');
-                                this.reset();
-                            } else {
-                                throw new Error('Erro no envio');
-                            }
-                        })
-                        .catch(error => {
-                            alert('Houve um problema ao enviar sua mensagem. Por favor, tente novamente mais tarde.');
-                            console.error('Error:', error);
-                        });
-                });
-            });
-        });
-
-        // Scroll para nao aparecer nome dos IDS/Sessao
+        // Funções gerais
         function scrollToSection(id) {
             const element = document.getElementById(id);
             if (element) {
@@ -1336,22 +1271,124 @@
             }
         }
 
-        // Modal Termos de USO/Ativar Botao
-        document.addEventListener('DOMContentLoaded', function () {
-            const checkbox = document.getElementById('agreeTerms');
-            const confirmBtn = document.getElementById('confirmTerms');
-
-            checkbox.addEventListener('change', function () {
-                confirmBtn.disabled = !this.checked;
-            });
-
-            confirmBtn.addEventListener('click', function () {
-                // Aqui você pode disparar alguma ação, como habilitar um botão de compra ou fechar o modal
-                alert('Termos aceitos! Agora você pode continuar.');
-                const modal = bootstrap.Modal.getInstance(document.getElementById('termsModal'));
-                modal.hide();
-            });
+        // Botão "Voltar ao topo"
+        window.addEventListener('scroll', function () {
+            var backToTop = document.querySelector('.back-to-top');
+            backToTop.style.display = (window.pageYOffset > 300) ? 'block' : 'none';
         });
+
+        document.querySelector('.back-to-top').addEventListener('click', function (e) {
+            e.preventDefault();
+            scrollToSection('home');
+        });
+
+        // Modal de orçamento - preencher serviço automaticamente
+        document.getElementById('quoteModal').addEventListener('show.bs.modal', function (event) {
+            var button = event.relatedTarget;
+            var service = button.getAttribute('data-service');
+            this.querySelector('#serviceName').value = service;
+        });
+
+        // Configuração principal dos formulários
+        document.addEventListener('DOMContentLoaded', function () {
+            // Adiciona máscara para telefone
+            const phoneInputs = document.querySelectorAll('input[type="tel"]');
+            phoneInputs.forEach(input => {
+                input.addEventListener('input', function (e) {
+                    let value = e.target.value.replace(/\D/g, '');
+                    if (value.length > 11) value = value.substring(0, 11);
+
+                    // Formatação do telefone
+                    if (value.length > 2) {
+                        value = `(${value.substring(0, 2)}) ${value.substring(2)}`;
+                    }
+                    if (value.length > 10) {
+                        value = `${value.substring(0, 10)}-${value.substring(10)}`;
+                    }
+
+                    e.target.value = value;
+                });
+            });
+
+            // Configuração dos formulários - SOLUÇÃO ATUALIZADA
+            const forms = document.querySelectorAll('form');
+            forms.forEach(form => {
+                form.addEventListener('submit', async function (e) {
+                    e.preventDefault();
+
+                    // Mostrar loading nos botões de submit
+                    const submitButtons = this.querySelectorAll('button[type="submit"]');
+                    submitButtons.forEach(button => {
+                        button.disabled = true;
+                        const originalText = button.innerHTML;
+                        button.setAttribute('data-original-text', originalText);
+                        button.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Enviando...';
+                    });
+
+                    try {
+                        // Coletar dados do formulário
+                        const formData = new FormData(this);
+                        const formObject = {};
+                        formData.forEach((value, key) => {
+                            formObject[key] = value;
+                        });
+
+                        // Adicionar parâmetros adicionais do FormSubmit
+                        formObject['_captcha'] = 'false'; // Desativa o captcha
+                        formObject['_template'] = 'table'; // Formato do email
+                        formObject['_subject'] = formObject['_subject'] || 'Nova mensagem do site';
+
+                        // Enviar via API do FormSubmit
+                        const response = await fetch(this.action, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Accept': 'application/json'
+                            },
+                            body: JSON.stringify(formObject)
+                        });
+
+                        if (response.ok) {
+                            // Sucesso - mostrar mensagem
+                            const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+                            successModal.show();
+
+                            // Limpar formulário
+                            this.reset();
+                        } else {
+                            throw new Error('Erro no envio');
+                        }
+                    } catch (error) {
+                        console.error('Erro:', error);
+                        alert('Houve um problema ao enviar sua mensagem. Por favor, tente novamente mais tarde.');
+                    } finally {
+                        // Restaurar botões
+                        submitButtons.forEach(button => {
+                            button.disabled = false;
+                            const originalText = button.getAttribute('data-original-text');
+                            if (originalText) {
+                                button.innerHTML = originalText;
+                            }
+                        });
+                    }
+                });
+            });
+
+            // Termos de uso
+            const termsCheckbox = document.getElementById('agreeTerms');
+            const termsConfirmBtn = document.getElementById('confirmTerms');
+            if (termsCheckbox && termsConfirmBtn) {
+                termsCheckbox.addEventListener('change', function () {
+                    termsConfirmBtn.disabled = !this.checked;
+                });
+            }
+        });
+
+        // Auto-show success modal after 5 seconds
+        setTimeout(function () {
+            var successModal = new bootstrap.Modal(document.getElementById('successModal'));
+            successModal.show();
+        }, 5000);
     </script>
 </body>
 

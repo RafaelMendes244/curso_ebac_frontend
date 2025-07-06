@@ -224,35 +224,178 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        // Mensagem para Confirmar Envio do Email para Usuario
-        document.addEventListener('DOMContentLoaded', function () {
-            // Confirmação de envio para todos os formulários
-            document.querySelectorAll('form').forEach(form => {
-                form.addEventListener('submit', function (e) {
-                    e.preventDefault();
-                    const formData = new FormData(this);
+        // Funções gerais
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
 
-                    fetch(this.action, {
-                        method: 'POST',
-                        body: formData,
-                        headers: {
-                            'Accept': 'application/json'
-                        }
-                    })
-                        .then(response => {
-                            if (response.ok) {
-                                alert('Mensagem enviada com sucesso! Entrarei em contato em breve.');
-                                this.reset();
-                            } else {
-                                throw new Error('Erro no envio');
-                            }
-                        })
-                        .catch(error => {
-                            alert('Houve um problema ao enviar sua mensagem. Por favor, tente novamente mais tarde.');
-                            console.error('Error:', error);
-                        });
+        // Botão "Voltar ao topo"
+        window.addEventListener('scroll', function () {
+            var backToTop = document.querySelector('.back-to-top');
+            if (backToTop) {
+                backToTop.style.display = (window.pageYOffset > 300) ? 'block' : 'none';
+            }
+        });
+
+        // Configuração principal dos formulários
+        document.addEventListener('DOMContentLoaded', function () {
+            // Adiciona máscara para telefone
+            const phoneInputs = document.querySelectorAll('input[type="tel"]');
+            phoneInputs.forEach(input => {
+                input.addEventListener('input', function (e) {
+                    let value = e.target.value.replace(/\D/g, '');
+                    if (value.length > 11) value = value.substring(0, 11);
+
+                    // Formatação do telefone
+                    if (value.length > 2) {
+                        value = `(${value.substring(0, 2)}) ${value.substring(2)}`;
+                    }
+                    if (value.length > 10) {
+                        value = `${value.substring(0, 10)}-${value.substring(10)}`;
+                    }
+
+                    e.target.value = value;
                 });
             });
+
+            // Configuração dos formulários
+            const forms = document.querySelectorAll('form');
+            forms.forEach(form => {
+                // Salvar texto original dos botões de submit
+                const submitButtons = form.querySelectorAll('button[type="submit"]');
+                submitButtons.forEach(button => {
+                    button.setAttribute('data-original-text', button.innerHTML);
+                });
+
+                form.addEventListener('submit', async function (e) {
+                    e.preventDefault();
+
+                    // Mostrar loading nos botões de submit
+                    submitButtons.forEach(button => {
+                        button.disabled = true;
+                        button.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Enviando...';
+                    });
+
+                    try {
+                        // Coletar dados do formulário
+                        const formData = new FormData(this);
+                        const formObject = {};
+                        formData.forEach((value, key) => {
+                            formObject[key] = value;
+                        });
+
+                        // Adicionar parâmetros especiais do FormSubmit
+                        formObject['_captcha'] = 'false'; // Desativa o captcha
+                        formObject['_template'] = 'table'; // Formato do email
+                        formObject['_subject'] = formObject['_subject'] || 'Nova mensagem do site';
+
+                        // Enviar via API do FormSubmit
+                        const response = await fetch(this.action, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Accept': 'application/json'
+                            },
+                            body: JSON.stringify(formObject)
+                        });
+
+                        if (response.ok) {
+                            // Sucesso - mostrar mensagem
+                            alert('Mensagem enviada com sucesso! Entrarei em contato em breve.');
+
+                            // Limpar formulário
+                            this.reset();
+
+                            // Fechar modal se estiver em um
+                            const modal = this.closest('.modal');
+                            if (modal) {
+                                const bsModal = bootstrap.Modal.getInstance(modal);
+                                if (bsModal) bsModal.hide();
+                            }
+                        } else {
+                            throw new Error('Erro no envio');
+                        }
+                    } catch (error) {
+                        console.error('Erro:', error);
+                        alert('Houve um problema ao enviar sua mensagem. Por favor, tente novamente mais tarde.');
+                    } finally {
+                        // Restaurar botões
+                        submitButtons.forEach(button => {
+                            button.disabled = false;
+                            button.innerHTML = button.getAttribute('data-original-text');
+                        });
+                    }
+                });
+            });
+
+            // Animação ao rolar (para páginas que usam)
+            const animateOnScroll = () => {
+                const elements = document.querySelectorAll('.card, .img-fluid, .feature-card');
+                elements.forEach(el => {
+                    const elPosition = el.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.2;
+
+                    if (elPosition < screenPosition) {
+                        el.style.opacity = '1';
+                        el.style.transform = 'translateY(0)';
+                    }
+                });
+            };
+
+            // Inicializar elementos animados
+            const animatedElements = document.querySelectorAll('.card, .img-fluid, .feature-card');
+            if (animatedElements.length > 0) {
+                animatedElements.forEach(el => {
+                    el.style.opacity = '0';
+                    el.style.transform = 'translateY(20px)';
+                    el.style.transition = 'all 0.5s ease-out';
+                });
+
+                window.addEventListener('scroll', animateOnScroll);
+                animateOnScroll(); // Executa uma vez ao carregar
+            }
+
+            // Contador regressivo (para LandingPageDemo)
+            const countdownElements = document.getElementById('days');
+            if (countdownElements) {
+                const countdownDate = new Date();
+                countdownDate.setDate(countdownDate.getDate() + 7);
+
+                function updateCountdown() {
+                    const now = new Date();
+                    const diff = countdownDate - now;
+
+                    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+                    document.getElementById('days').textContent = days.toString().padStart(2, '0');
+                    document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                    document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                    document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+                }
+
+                setInterval(updateCountdown, 1000);
+                updateCountdown();
+            }
+
+            // Efeito navbar scroll (para OnePageDemo)
+            const navbar = document.getElementById('navbar');
+            if (navbar) {
+                window.addEventListener('scroll', function () {
+                    if (window.scrollY > 100) {
+                        navbar.classList.add('scrolled', 'bg-white', 'navbar-light');
+                        navbar.classList.remove('navbar-dark');
+                    } else {
+                        navbar.classList.remove('scrolled', 'bg-white', 'navbar-light');
+                        navbar.classList.add('navbar-dark');
+                    }
+                });
+            }
         });
     </script>
 </body>
