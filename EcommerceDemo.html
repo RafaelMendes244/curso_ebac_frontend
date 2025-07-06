@@ -130,7 +130,7 @@
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="checkoutForm" action="https://formsubmit.co/gabriel.mito07@gmail.com" method="POST">
+                    <form id="checkoutForm">
                         <input type="hidden" name="_subject" value="Novo Pedido - TechStore">
                         <div class="mb-3">
                             <label class="form-label">Nome Completo</label>
@@ -327,37 +327,6 @@
 
         // Inicializa quando o DOM estiver pronto
         document.addEventListener('DOMContentLoaded', initStore);
-
-        // Mensagem para Confirmar Envio do Email para Usuario
-        document.addEventListener('DOMContentLoaded', function () {
-            // Confirmação de envio para todos os formulários
-            document.querySelectorAll('form').forEach(form => {
-                form.addEventListener('submit', function (e) {
-                    e.preventDefault();
-                    const formData = new FormData(this);
-
-                    fetch(this.action, {
-                        method: 'POST',
-                        body: formData,
-                        headers: {
-                            'Accept': 'application/json'
-                        }
-                    })
-                        .then(response => {
-                            if (response.ok) {
-                                alert('Mensagem enviada com sucesso! Entrarei em contato em breve.');
-                                this.reset();
-                            } else {
-                                throw new Error('Erro no envio');
-                            }
-                        })
-                        .catch(error => {
-                            alert('Houve um problema ao enviar sua mensagem. Por favor, tente novamente mais tarde.');
-                            console.error('Error:', error);
-                        });
-                });
-            });
-        });
     </script>
 </body>
 
