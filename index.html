@@ -5,12 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>WebSites RM - Criação de Sites Profissionais</title>
+    <meta name="robots" content="index, follow">
     <meta name="description"
         content="Criação de sites profissionais, landing pages e e-commerce. Soluções sob medida para seu negócio.">
     <meta name="keywords" content="criação de sites, desenvolvedor web, landing page, e-commerce">
     <meta name="author" content="Rafael Mendes">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
         :root {
             /* Cores principais */
@@ -99,6 +101,7 @@
         .card:hover {
             transform: translateY(-10px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
         }
 
         .card-title {
@@ -156,6 +159,10 @@
             z-index: 99;
         }
 
+        .back-to-top:hover {
+            transform: scale(1.1);
+        }
+
         #contact {
             background-color: var(--light-color);
         }
@@ -195,11 +202,50 @@
             min-height: 450px;
             border: 1px solid rgba(0, 0, 0, 0.1);
         }
+
+        /* CSS Botao WhatsApp */
+        .whatsapp-fixo {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+        }
+
+        .whatsapp-fixo img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-fixo img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Scrollbar para navegadores baseados em WebKit */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #25d366;
+            /* Cor do WhatsApp, por exemplo */
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #128c7e;
+        }
     </style>
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#navbar-example">
-    <!-- Navbar -->
     <nav id="navbar-example" class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
         <div class="container">
             <a class="navbar-brand fw-bold" href="#" onclick="scrollToSection('home'); return false;">
@@ -219,9 +265,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#" onclick="scrollToSection('about'); return false;">Sobre Mim</a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="#testimonials">Depoimentos</a>
-                    </li> -->
                     <li class="nav-item">
                         <a class="nav-link" href="#" onclick="scrollToSection('contact'); return false;">Contato</a>
                     </li>
@@ -252,7 +295,6 @@
         </div>
     </nav>
 
-    <!-- Carousel -->
     <section id="home">
         <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
@@ -301,7 +343,6 @@
         </div>
     </section>
 
-    <!-- Sessao para Transparencia -->
     <section class="py-5 bg-light">
         <div class="container">
             <div class="row g-4">
@@ -336,7 +377,6 @@
         </div>
     </section>
 
-    <!-- Sessao Modal de Orçamentos/Serviços -->
     <section id="services" class="py-5">
         <div class="container">
             <h2 class="text-center section-title">Nossos Planos de Criação de Sites</h2>
@@ -613,7 +653,6 @@
         </div>
     </section>
 
-    <!-- Sobre Mim Sessao -->
     <section id="about" class="py-5 bg-light">
         <div class="container">
             <div class="row align-items-center">
@@ -703,102 +742,6 @@
         </div>
     </section>
 
-    <!-- Sessao de Testemunhos -->
-    <!-- <section id="testimonials" class="py-5">
-        <div class="container">
-            <h2 class="text-center section-title">Depoimentos</h2>
-            <p class="text-center mb-5">Veja o que nossos clientes dizem sobre nossos serviços</p>
-
-            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0"
-                        class="active"></button>
-                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1"></button>
-                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2"></button>
-                </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="row justify-content-center">
-                            <div class="col-md-8">
-                                <div class="testimonial-card text-center">
-                                    <img src="https://randomuser.me/api/portraits/women/32.jpg"
-                                        class="rounded-circle mb-3" width="100" alt="Cliente">
-                                    <h4>Ana Carolina</h4>
-                                    <p class="text-muted">CEO - Moda & Estilo</p>
-                                    <div class="mb-3">
-                                        <i class="bi bi-star-fill text-warning"></i>
-                                        <i class="bi bi-star-fill text-warning"></i>
-                                        <i class="bi bi-star-fill text-warning"></i>
-                                        <i class="bi bi-star-fill text-warning"></i>
-                                        <i class="bi bi-star-fill text-warning"></i>
-                                    </div>
-                                    <p class="lead">"Nosso e-commerce teve um aumento de 150% nas vendas após o
-                                        redesenho feito pela WebSites RM. O atendimento foi excelente e o resultado
-                                        superou nossas expectativas!"</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="row justify-content-center">
-                            <div class="col-md-8">
-                                <div class="testimonial-card text-center">
-                                    <img src="https://randomuser.me/api/portraits/men/45.jpg"
-                                        class="rounded-circle mb-3" width="100" alt="Cliente">
-                                    <h4>Carlos Eduardo</h4>
-                                    <p class="text-muted">Diretor - Consultoria Empresarial</p>
-                                    <div class="mb-3">
-                                        <i class="bi bi-star-fill text-warning"></i>
-                                        <i class="bi bi-star-fill text-warning"></i>
-                                        <i class="bi bi-star-fill text-warning"></i>
-                                        <i class="bi bi-star-fill text-warning"></i>
-                                        <i class="bi bi-star-fill text-warning"></i>
-                                    </div>
-                                    <p class="lead">"O site institucional que desenvolveram para nossa empresa transmite
-                                        exatamente a profissionalismo que queríamos passar. Recebemos vários elogios de
-                                        clientes e parceiros."</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="row justify-content-center">
-                            <div class="col-md-8">
-                                <div class="testimonial-card text-center">
-                                    <img src="https://randomuser.me/api/portraits/women/68.jpg"
-                                        class="rounded-circle mb-3" width="100" alt="Cliente">
-                                    <h4>Mariana Oliveira</h4>
-                                    <p class="text-muted">Gerente de Marketing - Alimentos Saudáveis</p>
-                                    <div class="mb-3">
-                                        <i class="bi bi-star-fill text-warning"></i>
-                                        <i class="bi bi-star-fill text-warning"></i>
-                                        <i class="bi bi-star-fill text-warning"></i>
-                                        <i class="bi bi-star-fill text-warning"></i>
-                                        <i class="bi bi-star-fill text-warning"></i>
-                                    </div>
-                                    <p class="lead">"A landing page que criaram para nossa campanha teve uma taxa de
-                                        conversão impressionante. Superou em muito os resultados das campanhas
-                                        anteriores. Recomendo!"</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Anterior</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Próximo</span>
-                </button>
-            </div>
-        </div>
-    </section> -->
-
-    <!-- Sessao para enviar Serviço do Interesse -->
     <section id="contact" class="py-5">
         <div class="container">
             <h2 class="text-center section-title">Entre em Contato</h2>
@@ -846,39 +789,42 @@
                     </form>
                 </div>
                 <div class="col-lg-6">
-                    <div class="card h-100">
+                    <div class="card h-100 shadow text-center p-4">
                         <div class="card-body">
-                            <h5 class="card-title">Informações de Contato</h5>
-                            <ul class="list-unstyled">
+                            <h5 class="card-title text-primary mb-4">Por Que Escolher a WebSites RM?</h5>
+                            <ul class="list-unstyled text-start">
                                 <li class="mb-3">
-                                    <i class="bi bi-geo-alt-fill text-primary me-2"></i>
-                                    <span>R. Bancário Sérgio Guerra, 900 - Anatólia, João Pessoa - PB</span>
+                                    <i class="bi bi-code-slash text-primary me-2"></i>
+                                    <strong>Código Limpo e Otimizado:</strong> Desenvolvemos com as melhores práticas
+                                    para performance e manutenibilidade.
                                 </li>
                                 <li class="mb-3">
-                                    <i class="bi bi-telephone-fill text-primary me-2"></i>
-                                    <span>(11) 9999-9999</span>
+                                    <i class="bi bi-palette-fill text-primary me-2"></i>
+                                    <strong>Design Moderno e Intuitivo:</strong> Criamos experiências visuais que
+                                    encantam e convertem visitantes em clientes.
                                 </li>
                                 <li class="mb-3">
-                                    <i class="bi bi-envelope-fill text-primary me-2"></i>
-                                    <span>contato@websitespremium.com.br</span>
+                                    <i class="bi bi-search text-primary me-2"></i>
+                                    <strong>SEO Friendly:</strong> Seu site preparado para rankear bem no Google e
+                                    atrair mais tráfego orgânico.
                                 </li>
                                 <li class="mb-3">
-                                    <i class="bi bi-clock-fill text-primary me-2"></i>
-                                    <span>Segunda a Sexta: 9h às 18h</span>
+                                    <i class="bi bi-headset text-primary me-2"></i>
+                                    <strong>Suporte Dedicado:</strong> Atendimento próximo e personalizado em todas as
+                                    etapas do seu projeto.
+                                </li>
+                                <li class="mb-3">
+                                    <i class="bi bi-graph-up text-primary me-2"></i>
+                                    <strong>Foco em Resultados:</strong> Desenvolvemos soluções que geram valor real
+                                    para o seu negócio.
                                 </li>
                             </ul>
-
-                            <div class="ratio ratio-16x9 mb-4">
-                                <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.80944894136!2d-34.84527147025118!3d-7.1480195207225155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7acc2ed69c58c9f%3A0xc0200d88ab3e6120!2sShopping%20Sul!5e0!3m2!1spt-BR!2sbr!4v1751510188974!5m2!1spt-BR!2sbr"
-                                    style="border:0;" allowfullscreen="" loading="lazy">
-                                </iframe>
-                            </div>
-
-                            <div class="d-flex justify-content-center">
-                                <a href="#" class="btn btn-outline-primary me-2"><i class="bi bi-whatsapp"></i>
-                                    WhatsApp</a>
-                            </div>
+                            <p class="mt-4 lead">
+                                <strong><b>**Transforme sua ideia em uma presença digital de sucesso!**</b></strong>
+                            </p>
+                            <a href="https://wa.me/55920006113" target="_blank" class="btn btn-primary btn-lg mt-3">
+                                <i class="bi bi-rocket-takeoff me-2"></i> Chamar no WhatsApp
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -886,7 +832,6 @@
         </div>
     </section>
 
-    <!-- Newsletter -->
     <section class="py-5 bg-primary text-white">
         <div class="container">
             <div class="row align-items-center">
@@ -916,7 +861,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="py-4">
         <div class="container">
             <div class="row">
@@ -926,8 +870,9 @@
                     <div class="social-icons">
                         <a href="#"><i class="bi bi-facebook"></i></a>
                         <a href="#"><i class="bi bi-instagram"></i></a>
-                        <a href="#"><i class="bi bi-linkedin"></i></a>
-                        <a href="#"><i class="bi bi-youtube"></i></a>
+                        <a href="https://www.linkedin.com/in/fael-mendesdev/" target="_blank"><i
+                                class="bi bi-linkedin"></i></a>
+                        <!-- <a href="#"><i class="bi bi-youtube"></i></a> -->
                     </div>
                 </div>
                 <div class="col-md-2 mb-4 mb-md-0">
@@ -960,13 +905,7 @@
                             width="40">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png"
                             alt="Mastercard" width="40">
-                        <!-- <img src="https://img.icons8.com/?size=80&id=SkmZiM3fxBsb&format=png" alt="American Express"
-                            width="40"> -->
-                        <!-- <img src="https://cdn.brandfetch.io/idT3-XCDJD/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B"
-                            alt="Elo" width="40" style="filter: brightness(0) invert(1);"> -->
                         <img src="https://img.icons8.com/?size=48&id=Dk4sj0EM4b20&format=png" alt="Pix" width="40">
-                        <!-- <img src="https://img.icons8.com/?format=png&id=77599&size=512w" alt="Boleto" width="40"
-                            style="filter: brightness(0) invert(1);"> -->
                     </div>
                 </div>
             </div>
@@ -977,7 +916,6 @@
         </div>
     </footer>
 
-    <!-- Modal Para Solicitar Orçamento -->
     <div class="modal fade" id="quoteModal" tabindex="-1" aria-labelledby="quoteModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -1022,7 +960,6 @@
         </div>
     </div>
 
-    <!-- Modal Fale Conosco/Contato da Index -->
     <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -1063,7 +1000,6 @@
         </div>
     </div>
 
-    <!-- Modal com Sucessos -->
     <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -1120,7 +1056,6 @@
         </div>
     </div>
 
-    <!-- Modais de Mais e Portfolio -->
     <div class="modal fade" id="blogModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -1172,7 +1107,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                    <a href="#" class="btn btn-primary" data-bs-dismiss="modal">Ver mais detalhes</a>
+                    <a href="#" onclick="abrirDoisLinks()" class="btn btn-primary">Ver mais detalhes</a>
                 </div>
             </div>
         </div>
@@ -1223,7 +1158,6 @@
         </div>
     </div>
 
-    <!-- Modal dos Termos de USO -->
     <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -1236,8 +1170,6 @@
                         distribuir ou explorar comercialmente qualquer conteúdo sem autorização prévia...</p>
                     <p><strong>2. Compras:</strong> Os projetos adquiridos são de uso exclusivo do comprador e não podem
                         ser revendidos...</p>
-                    <!-- Adicione outros termos conforme necessário -->
-
                     <div class="form-check mt-4">
                         <input class="form-check-input" type="checkbox" id="agreeTerms">
                         <label class="form-check-label" for="agreeTerms">
@@ -1253,13 +1185,17 @@
         </div>
     </div>
 
+    <!-- Botao do Whatsapp -->
+    <a href="https://wa.me/55920006113" target="_blank" class="whatsapp-fixo">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" />
+    </a>
+
     <!-- Botao de Voltar ao Topo -->
     <a href="#" onclick="scrollToSection('home'); return false;" class="back-to-top btn btn-primary rounded-circle p-3"
         title="Voltar ao topo">
         <i class="bi bi-arrow-up"></i>
     </a>
 
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
@@ -1389,6 +1325,12 @@
             var successModal = new bootstrap.Modal(document.getElementById('successModal'));
             successModal.show();
         }, 5000);
+
+        // Função para abrir dois Links
+        function abrirDoisLinks() {
+            window.open('https://rmsimulador.onrender.com/', '_blank');
+            window.open('https://versiculodia-eta.vercel.app/', '_blank');
+        }
     </script>
 </body>
 
