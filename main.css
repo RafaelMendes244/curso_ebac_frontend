@@ -1,0 +1,146 @@
+:root {
+    --primary-color: #5a4a9c;
+    --secondary-color: #eae6ff;
+    --light-text: #fff;
+    --dark-bg: #2f3542;
+    --warning-color: #f39c12;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.navbar {
+    background-color: var(--primary-color);
+}
+
+#cabecalho .nav .nav-link.active {
+    background-color: var(--light-text);
+    color: var(--primary-color);
+}
+
+.navbar-brand:hover {
+    color: var(--light-text);
+}
+
+#cabecalho .nav .nav-link,
+.navbar-brand,
+.nav-cardapio .nav-link.active:hover {
+    color: var(--light-text);
+}
+
+.navbar-toggler {
+    background-color: var(--secondary-color);
+}
+
+.section-title {
+    font-family: Pacifico, cursive;
+}
+
+#sobre-loja,
+#produtos {
+    background-color: var(--secondary-color);
+}
+
+.text-colored {
+    color: var(--primary-color);
+}
+
+.nav-cardapio .nav-link.active,
+#fale-conosco button {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+}
+
+.nav-cardapio .nav-link:hover {
+    color: var(--primary-color);
+}
+
+.sociais-links li {
+    list-style: none;
+    display: inline-block;
+}
+
+.sociais-links li a {
+    text-decoration: none;
+}
+
+/* Estilos para as imagens */
+.product-image {
+    height: 200px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.collection-image {
+    height: 250px;
+    object-fit: cover;
+    width: 100%;
+}
+
+/* Melhorias nos Cards de Produto */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card.h-100 {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-footer-content {
+    margin-top: auto;
+    /* Empurra o conteúdo (preço e botão) para o final do card */
+}
+
+.card-footer-content .btn {
+    width: 100%;
+}
+
+.collection-card {
+    height: 100%;
+}
+
+footer {
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+}
+
+footer a {
+    color: var(--warning-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 767px) {
+    .carousel-item img {
+        height: 280px;
+        object-fit: cover;
+    }
+
+    .product-image {
+        height: 150px;
+    }
+
+    .collection-image {
+        height: 200px;
+    }
+}
