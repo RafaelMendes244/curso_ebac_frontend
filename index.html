@@ -62,7 +62,7 @@
 
         .carousel-item {
             height: 80vh;
-            min-height: 500px;
+            min-height: 350px;
         }
 
         .carousel-item img {
@@ -198,7 +198,6 @@
         }
 
         .service-card {
-            min-height: 450px;
             border: 1px solid rgba(0, 0, 0, 0.1);
         }
 
@@ -240,6 +239,60 @@
 
         ::-webkit-scrollbar-thumb:hover {
             background: #128c7e;
+        }
+
+        @media (max-height: 450px) {
+            .carousel-item {
+                min-height: auto;
+                height: 100vh;
+            }
+        }
+
+        @media (max-width: 576px) {
+            body {
+                font-size: 14px;
+            }
+
+            h1, h2, h3 {
+                font-size: 1.5rem;
+            }
+
+            .carousel-item {
+                height: 60vh;
+            }
+
+            .carousel-caption {
+                bottom: 10%;
+                padding: 1rem;
+            }
+
+            .form-control {
+                font-size: 0.9rem;
+                padding: 0.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .whatsapp-fixo {
+                top: auto;
+                bottom: 80px;
+                transform: none;
+            }
+
+            .service-card {
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .navbar-collapse {
+                padding-top: 1rem;
+            }
+
+            .dropdown-menu {
+                background-color: transparent;
+                border: none;
+            }
         }
     </style>
 </head>
@@ -1087,7 +1140,7 @@
                     <div class="row">
                         <div class="col-md-6 mb-4">
                             <div class="card h-100">
-                                <img src="./imagens/RMSimulador.png" class="card-img-top" alt="RM Simulador">
+                                <img src="./imagens/RMSimulador.png" class="card-img-top img-fluid" alt="RM Simulador">
                                 <div class="card-body">
                                     <h5 class="card-title">RM Simulador</h5>
                                     <p class="card-text">Sistema completo para simulação da Prova do ENEM com dashboard
