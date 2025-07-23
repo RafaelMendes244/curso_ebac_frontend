@@ -1,0 +1,58 @@
+@use '../config/variables';
+
+.products {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 32.66%);
+    column-gap: 1%;
+    row-gap: 4%;
+    width: 100%;
+}
+
+.product-item {
+    background-color: variables.$color-white;
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.product-item img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+.product-item h4 {
+    font-size: 1.2em;
+    margin-bottom: 8px;
+    color: variables.$color-primary;
+}
+
+.product-item p {
+    font-size: 0.9em;
+    line-height: 1.4;
+    margin-bottom: 16px;
+}
+
+.product-button {
+    display: block;
+    background-color: variables.$color-green;
+    color: variables.$color-white;
+    text-align: center;
+    padding: 8px 0;
+    border-radius: 8px;
+    margin-top: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.product-button:hover {
+    background-color: variables.$color-green-hover;
+}

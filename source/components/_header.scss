@@ -1,0 +1,37 @@
+@use '../config/variables';
+@use 'sass:color';
+
+header {
+    background-color: variables.$color-primary;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+}
+
+.menu {
+    display: flex;
+}
+
+.menu li {
+    font-weight: bold;
+    margin-left: 24px;
+    transition: color 0.3s ease;
+}
+
+.menu li a {
+    color: variables.$color-white;
+    text-decoration: none;
+}
+
+.menu li a:hover {
+    color: color.adjust(variables.$color-white, $lightness: -10%);
+}

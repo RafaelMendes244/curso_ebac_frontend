@@ -1,0 +1,12 @@
+@use '../config/variables';
+
+footer {
+    background-color: variables.$color-primary;
+    color: variables.$color-white;
+    text-align: center;
+    padding: 24px 0;
+    font-size: 0.9em;
+    p {
+        margin: 0;
+    }
+}
