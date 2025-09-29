@@ -1,0 +1,48 @@
+/* main.scss */
+
+// Reset e Estilos Globais
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+// Bloco de Layout
+.produtos {
+    max-width: 640px;
+    width: 100%;
+    margin: 56px auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+// Bloco do Componente 'produto'
+.produto {
+    // Estilos base do bloco, se houver
+
+    // Elementos do bloco. O '&' se refere ao seletor pai (.produto)
+    &__imagem {
+        width: 100%;
+        display: block;
+    }
+
+    &__nome {
+        font-size: 1.2em;
+        margin: 8px 0;
+    }
+
+    &__descricao {
+        color: gray;
+        font-size: 0.9em;
+    }
+
+    // Modificador do bloco. O '&' se refere ao seletor pai (.produto)
+    &--em-destaque {
+        border: 2px solid gold;
+        padding: 8px;
+        background-color: #ffff42;
+        border-radius: 4px;
+    }
+}
