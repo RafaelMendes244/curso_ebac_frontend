@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RM Plus+</title>
     <link rel="stylesheet" href="./dist/css/main.css">
 </head>
+
 <body>
+    <!-- Primeira Sessao -->
     <section class="hero">
         <div class="hero__content">
             <h1 class="hero__content__branding">
@@ -25,12 +28,12 @@
             <ul class="hero__content__combos">
                 <li class="hero__content__combos__combo">
                     <img src="/dist/images/logos/disney_star_plus.png" alt="RM Plus+ - Star+ - Combo+">
-                    <button>Assine Agora</button>
+                    <button class="button">Assine Agora</button>
                     <span class="text--medium">R$ 45,90/mês</span>
                 </li>
                 <li class="hero__content__combos__combo">
                     <img src="/dist/images/logos/disney_star_plus.png" alt="RM Plus+ - Star+ - Combo+">
-                    <button>Assine Agora</button>
+                    <button class="button">Assine Agora</button>
                     <span class="text--medium">R$ 55,90/mês</span>
                 </li>
             </ul>
@@ -39,5 +42,117 @@
             </p>
         </div>
     </section>
+
+    <!-- Segunda Sessao -->
+    <section class="shows">
+        <nav class="shows__tabs">
+            <button data-tab-button="em_breve" class="shows__tabs__button shows__tabs__button--is-active">
+                Em Breve
+            </button>
+            <button data-tab-button="populares" class="shows__tabs__button">
+                Mais Populares
+            </button>
+            <button data-tab-button="rm_plus" class="shows__tabs__button">
+                Originais RM Plus+
+            </button>
+        </nav>
+        <ul data-tab-id="em_breve" class="shows__list shows__list--is-active">
+            <li class="shows__list__item">
+                <img src="./dist/images/em_breve/desencantada.jpg" alt="Filme Desencantada">
+            </li>
+            <li class="shows__list__item">
+                <img src="./dist/images/em_breve/lobisomem.jpg" alt="Filme Lobisomen">
+            </li>
+            <li class="shows__list__item">
+                <img src="./dist/images/em_breve/sem_limites.jpg" alt="Filme Sem Limites">
+            </li>
+            <li class="shows__list__item">
+                <img src="./dist/images/em_breve/spidey.jpg" alt="Filme Spider Man">
+            </li>
+            <li class="shows__list__item">
+                <img src="./dist/images/em_breve/the_santa_clauses.jpg" alt="Filme The Santa Clauses">
+            </li>
+            <li class="shows__list__item">
+                <img src="./dist/images/em_breve/willow.jpg" alt="Filme Willow">
+            </li>
+        </ul>
+        <ul data-tab-id="populares" class="shows__list">
+            <li class="shows__list__item">
+                <img src="./dist/images/mais_populares/bluey.jpg" alt="Filme Bluey">
+            </li>
+            <li class="shows__list__item">
+                <img src="./dist/images/mais_populares/cavaleira_da_lua.jpg" alt="Filme Cavaleira da Lua">
+            </li>
+            <li class="shows__list__item">
+                <img src="./dist/images/mais_populares/o_incrivel_dr_pol.jpg" alt="Filme O Incrivel Dr Pol">
+            </li>
+            <li class="shows__list__item">
+                <img src="./dist/images/mais_populares/obi_wan.jpg" alt="Filme Obi Wan Kenobi">
+            </li>
+            <li class="shows__list__item">
+                <img src="./dist/images/mais_populares/red.jpg" alt="Filme Red">
+            </li>
+            <li class="shows__list__item">
+                <img src="./dist/images/mais_populares/tudo_igual_sqn.jpg" alt="Filme Tudo Igual SQN">
+            </li>
+        </ul>
+        <ul data-tab-id="rm_plus" class="shows__list">
+            <li class="shows__list__item">
+                <img src="./dist/images/mais_no_star_plus/belair.jpg" alt="Filme Belair">
+            </li>
+            <li class="shows__list__item">
+                <img src="./dist/images/mais_no_star_plus/libertadores.jpg" alt="Libertadores">
+            </li>
+            <li class="shows__list__item">
+                <img src="./dist/images/mais_no_star_plus/nba.jpg" alt="NBA">
+            </li>
+            <li class="shows__list__item">
+                <img src="./dist/images/mais_no_star_plus/os_simpson.jpg" alt="Os Simpsons">
+            </li>
+            <li class="shows__list__item">
+                <img src="./dist/images/mais_no_star_plus/premier_league.jpg" alt="Premier League">
+            </li>
+            <li class="shows__list__item">
+                <img src="./dist/images/mais_no_star_plus/the_kardashians.jpg" alt="The Kardashians">
+            </li>
+        </ul>
+    </section>
+
+    <!-- Terceira Sessao -->
+    <section class="plans">
+        <h2 class="title--big">Escolha seu Plano</h2>
+        <ul class="plans__list">
+            <li class="plans__list__item">
+                <img src="./dist/images/logos/disneyplus_underline.png" alt="RM Plus+">
+                <strong class="title--small">R$ 27,90/mês*</strong>
+                <p class="text--big">
+                    No RM Plus+ você encontra as ultimas estreias do cinema, originais e classicos inesqueciveis.
+                </p>
+                <button class="button">Assine Agora</button>
+            </li>
+            <li class="plans__list__item">
+                <img src="./dist/images/logos/disney_star_plus_sm.png" alt="RM Plus+">
+                <strong class="title--small">R$ 45,90/mês*</strong>
+                <p class="text--big">
+                    Assine RM Plus+ e Star+ juntos. Economize e aproveita agora os dois serviços por um preço unico.
+                </p>
+                <button class="button">Assine Agora</button>
+            </li>
+            <li class="plans__list__item">
+                <img src="./dist/images/logos/disney_star_plus_starzplay_underline.png" alt="RM Plus+">
+                <strong class="title--small">R$ 55,90/mês*</strong>
+                <p class="text--big">
+                    RM Plus+, Star+ e STARZPLAY em um plano especial. Assine agora os três serviços juntos.
+                </p>
+                <button class="button">Assine Agora</button>
+            </li>
+        </ul>
+        <p class="text--small">
+            *O Preço pode variar caso a asssinatura seja feita através de outras plataformas.
+        </p>
+    </section>
+
+    <script src="./src/main.js"></script>
 </body>
+
 </html>
