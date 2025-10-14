@@ -1,6 +1,19 @@
 document.addEventListener("DOMContentLoaded", function() {
     const buttons = document.querySelectorAll('[data-tab-button');
     const questions = document.querySelectorAll('[data-faq-question');
+
+    const  heroSection = document.querySelector('.hero');
+    const alturaHero = heroSection.clientHeight;
+
+    window.addEventListener('scroll', function() {
+        const posicaoAtual = window.scrollY;
+
+        if (posicaoAtual > alturaHero) {
+            exibeElementos();
+        } else {
+            ocultaElementos();
+        }
+    })
     
     // Funçao para Mudar as Sessoes ao Clicar
     for (let i = 0; i < buttons.length; i++) {
@@ -42,4 +55,14 @@ function esconderTodasAbas() {
     for (let i = 0; i < tabs.length; i++) {
         tabs[i].classList.remove('shows__list--is-active');
     }
+}
+
+function ocultaElementos() {
+    const header = document.querySelector('header');
+    header.classList.add('header--is-hidden');
+}
+
+function exibeElementos() {
+    const header = document.querySelector('header');
+    header.classList.remove('header--is-hidden');
 }
