@@ -36,6 +36,19 @@
                 overflow: hidden;
                 padding: 0 24px;
                 transition: height, 0.5s ease;
+
+                p {
+                    margin-bottom: 16px; // Espaçamento abaixo do parágrafo inicial
+                }
+
+                ul {
+                    padding-left: 20px; // Cria o recuo da lista inteira
+                    list-style: disc; // Garante que o marcador seja a bolinha
+                }
+
+                li {
+                    margin-bottom: 16px; // Espaçamento entre os itens da lista
+                }
             }
 
             &--is-open {
