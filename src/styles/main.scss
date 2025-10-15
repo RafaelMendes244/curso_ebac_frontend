@@ -1,0 +1,143 @@
+@use 'header';
+@use 'variaveis';
+@use 'hero';
+@use 'shows';
+@use 'infosection';
+@use 'bugle-report';
+@use 'faq';
+@use 'dividers';
+@use 'footer';
+@use "sass:color";
+
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Roboto:wght@400;700&display=swap');
+
+$fontHero: 'Bangers', cursive;
+$fontBody: 'Roboto', sans-serif;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $fontBody;
+    list-style: none;
+}
+
+body {
+    background-color: variaveis.$corDeFundo;
+}
+
+@mixin text($fontSize: 16px) {
+    font-size: $fontSize;
+    line-height: $fontSize + 10px;
+    color: variaveis.$corTextoPrincipal;
+}
+
+.text--big {
+    @include text(18px);
+
+    @media (max-width: 768px) {
+        @include text(15px);
+    }
+}
+
+.text--medium {
+    @include text;
+
+    @media (max-width: 768px) {
+        @include text(14px);
+    }
+}
+
+.text--small {
+    @include text(12px);
+
+    @media (max-width: 768px) {
+        @include text(11px);
+    }
+}
+
+@mixin title($fontSize: 40px) {
+    font-size: $fontSize;
+    line-height: $fontSize + 4px;
+    color: variaveis.$corTextoSecundario;
+    font-family: $fontHero;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+.title--big {
+    @include title(44px);
+
+    @media (max-width: 768px) {
+        @include title(26px);
+    }
+}
+
+.title {
+    @include title;
+
+    @media (max-width: 768px) {
+        @include title(24px);
+    }
+}
+
+.title--small {
+    @include title(28px);
+
+    @media (max-width: 768px) {
+        @include title(22px);
+    }
+}
+
+.button {
+    display: inline-block;
+    height: 60px;
+    line-height: 60px;
+    padding: 0 28px;
+    text-align: center;
+    font-size: 18px;
+    color: variaveis.$corTextoSecundario;
+    background-color: variaveis.$corDeFundoBotaoPrimario;
+    text-transform: uppercase;
+    border-radius: 4px;
+    text-decoration: none;
+    letter-spacing: 1px;
+    border: 1px solid variaveis.$corDeFundoBotaoPrimario;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+
+    &:hover {
+        background-color: color.adjust(variaveis.$corDeFundoBotaoPrimario, $lightness: -10%);
+    }
+
+    &--secondary {
+        background-color: variaveis.$corDeFundoBotaoSecundario;
+        border-color: variaveis.$corDeFundoBotaoSecundario;
+
+        &:hover {
+            background-color: color.adjust(variaveis.$corDeFundoBotaoSecundario, $lightness: -10%);
+        }
+    }
+
+    &--dark {
+        background-color: rgba(variaveis.$corDeFundoBotaoDark, 0.8);
+        border-color: variaveis.$corTextoSecundario;
+
+        &:hover {
+            background-color: variaveis.$corTextoSecundario;
+            color: variaveis.$corDeFundo;
+        }
+    }
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+
+    &--visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

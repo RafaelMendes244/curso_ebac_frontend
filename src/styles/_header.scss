@@ -1,0 +1,78 @@
+@use 'variaveis';
+
+.header {
+    padding: 8px 36px;
+    background-color: variaveis.$corDeFundo;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    border-bottom: 1px solid #222;
+
+    &__container {
+        max-width: 1280px;
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__logo {
+        max-width: 80px;
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+
+    &__links {
+        display: flex;
+        gap: 40px;
+
+        &__item {
+            a {
+                font-family: 'Bangers', cursive; // Usa a fonte de título
+                letter-spacing: 1.5px;
+                font-size: 18px;
+                text-decoration: none;
+                color: variaveis.$corTextoPrincipal;
+                position: relative;
+                padding-bottom: 5px;
+
+                // Efeito de sublinhado animado
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 0;
+                    height: 2px;
+                    background-color: variaveis.$corAranhaVermelho;
+                    transition: width 0.3s ease-in-out;
+                }
+
+                &:hover::after {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        padding: 8px 16px;
+
+        &__logo {
+            max-width: 60px;
+        }
+
+        &__links {
+            gap: 16px;
+
+            &__item a {
+                font-size: 16px;
+            }
+        }
+    }
+}

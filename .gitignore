@@ -1,0 +1,5 @@
+# Pasta de dependências do Node
+/node_modules
+
+# Pasta de arquivos compilados (build)
+/dist

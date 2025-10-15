@@ -1,0 +1,13 @@
+@use 'variaveis';
+
+.section-divider {
+    height: 100px;
+    background-color: variaveis.$corDeFundo;
+    border: none;
+    margin: -1px 0; // Previne linhas finas entre seções
+    clip-path: polygon(0 0, 100% 100%, 100% 100%, 0 100%);
+
+    &--inverted {
+        clip-path: polygon(0 100%, 100% 0, 100% 100%, 0 100%);
+    }
+}

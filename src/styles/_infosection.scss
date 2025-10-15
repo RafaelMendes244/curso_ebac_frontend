@@ -1,0 +1,25 @@
+.image-text-section {
+    padding: 5.6vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 40px;
+
+    &__image {
+        width: 100%;
+        max-width: 100%;
+        border-radius: 8px;
+        display: block; // Remove espaço extra sob a imagem
+    }
+
+    &__text_container {
+        h2 {
+            margin-bottom: 24px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        padding: 10vw 5.6vw;
+    }
+}
