@@ -1,0 +1,296 @@
+/* --- Reset Básico e Variáveis Globais --- */
+:root {
+    --color-primary: #00aaff; /* Um azul elétrico */
+    --color-bg: #0a0a14;      /* Fundo escuro */
+    --color-surface: #1a1a2e; /* Cor para os 'cards' */
+    --color-text: #e0e0e0;
+    --color-text-secondary: #a0a0a0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Header e Navegação --- */
+header {
+    background-color: var(--color-surface);
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-primary);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--color-primary);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--color-text);
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--color-primary);
+}
+
+/* --- Botão CTA (Call to Action) --- */
+.cta-button {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: var(--color-bg);
+    padding: 12px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+    background-color: #00cfff;
+}
+
+
+/* --- Seção Hero --- */
+.hero {
+    text-align: center;
+    padding: 6rem 0;
+    background: linear-gradient(rgba(10, 10, 20, 0.8), rgba(10, 10, 20, 1)), url(https://images.unsplash.com/photo-1519389950473-47ba0277781c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDR8fHRlY2hub2xvZ3klMjBsYXVuY2h8ZW58MHx8fHwxNjE5NjEwMzg1&ixlib=rb-1.2.1&q=80&w=1920);
+    background-size: cover;
+    background-position: center;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.hero .subtitle {
+    font-size: 1.5rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 2rem;
+}
+
+/* --- Countdown Timer --- */
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 2.5rem 0;
+}
+
+.time-block {
+    background: var(--color-surface);
+    padding: 1.5rem;
+    border-radius: 10px;
+    min-width: 100px;
+    box-shadow: 0 4px 15px rgba(0, 170, 255, 0.1);
+}
+
+.time-block span {
+    display: block;
+    font-weight: 700;
+}
+
+.time-block span:first-child {
+    font-size: 3rem;
+    color: var(--color-primary);
+    font-weight: 900;
+}
+
+/* --- Seção Features --- */
+.features {
+    padding: 5rem 0;
+    background-color: var(--color-bg);
+}
+
+.features h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.feature-card {
+    background-color: var(--color-surface);
+    padding: 2.5rem;
+    border-radius: 10px;
+    border: 1px solid #333;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--color-primary);
+}
+
+.feature-card h3 {
+    color: var(--color-primary);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* --- Seção Registro --- */
+.register {
+    padding: 5rem 0;
+    background-color: var(--color-surface);
+    text-align: center;
+}
+
+.register h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.register p {
+    font-size: 1.2rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 2.5rem;
+}
+
+.register-form {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.register-form input[type="email"] {
+    padding: 15px;
+    font-size: 1rem;
+    border: 1px solid #444;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    border-radius: 5px;
+    width: 350px;
+}
+
+/* --- Footer --- */
+footer {
+    padding: 2rem 0;
+    background-color: #000;
+    text-align: center;
+    color: var(--color-text-secondary);
+    margin-top: 2rem;
+}
+
+
+/* ############################################## */
+/* ###   REQUISITO: RESPONSIVIDADE (MÓDULO)   ### */
+/* ############################################## */
+
+/* Para Tablets (ex: iPads) */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero .subtitle {
+        font-size: 1.2rem;
+    }
+
+    /* Quebra o grid de features para uma coluna */
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Ajusta o formulário para ficar em coluna */
+    .register-form {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .register-form input[type="email"] {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .register-form button {
+        width: 100%;
+        max-width: 400px;
+    }
+}
+
+
+/* Para Celulares (ex: iPhones, Androids) */
+@media (max-width: 480px) {
+    /* Oculta o menu de desktop (simplificado, poderia adicionar um 'menu hambúrguer') */
+    .nav-links {
+        display: none; 
+    }
+
+    .logo {
+        text-align: center;
+        width: 100%;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .hero .subtitle {
+        font-size: 1rem;
+    }
+
+    /* Ajusta o countdown para ser mais vertical */
+    .countdown {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .time-block {
+        min-width: 250px;
+    }
+
+    .features h2, .register h2 {
+        font-size: 2rem;
+    }
+}
